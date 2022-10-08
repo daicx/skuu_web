@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:skuu_web/route/router_hander.dart';
 
 class Routes {
-  static late final FluroRouter router;
+  static late FluroRouter router;
 
 //路由管理
   static String root = "/";
@@ -15,7 +15,8 @@ class Routes {
   static String whatArticle = "/what_article";
   static String searchPage = "/search_page";
 
-  static void configureRoutes(FluroRouter router) {
+  static void configureRoutes(FluroRouter fluroRouter) {
+    router = fluroRouter;
     // 未发现对应route
     router.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -29,14 +30,13 @@ class Routes {
     // router.define(collect, handler: collecthandle);
     // router.define(watch, handler: watchthandle);
     // router.define(whatArticle, handler: whatArticlehandle);
-    // router.define(searchPage, handler: searchPagehandle);
-    router = router;
+    router.define(searchPage, handler: searchPagehandle);
   }
 
   // 对参数进行encode，解决参数中有特殊字符，影响fluro路由匹配
   static Future navigateTo(BuildContext context, String path,
       {Map<String, List<String>>? params,
-        TransitionType transition = TransitionType.native}) {
+      TransitionType transition = TransitionType.native}) {
     String query = "";
     if (params != null) {
       int index = 0;
@@ -51,7 +51,7 @@ class Routes {
         index++;
       }
     }
-    print('我是navigateTo传递的参数：$query');
+    print('path:$path,params:$query');
     path = path + query;
     return router.navigateTo(context, path, transition: transition);
   }

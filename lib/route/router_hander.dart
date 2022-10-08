@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../main.dart';
+import '../pages/search_page.dart';
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -35,7 +36,7 @@ var rootHandler = Handler(
 //     Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
 //   return WhatArticle();
 // });
-// var searchPagehandle =
-//     Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-//   return SearchPage();
-// });
+var searchPagehandle = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return SearchPage();
+});

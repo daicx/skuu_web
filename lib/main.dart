@@ -69,34 +69,43 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       //导航栏
       appBar: AppBar(
-        // title: Text(widget.title),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return SizedBox(
-              width: 10.w,
-              height: 10.h,
-              child: GestureDetector(
-                child: Image.asset(
-                  'imgs/img_default.png',
+          // title: Text(widget.title),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return SizedBox(
+                width: 10.w,
+                height: 10.h,
+                child: GestureDetector(
+                  child: Image.asset(
+                    'imgs/img_default.png',
+                  ),
+                  onTap: () {
+                    Scaffold.of(context).openDrawer();
+                  },
                 ),
-                onTap: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              ),
-            );
-          },
-        ),
-        automaticallyImplyLeading: false,
-        // centerTitle: false,
-        actions: [
-          Row(children: [
-            TextButton.icon(
-                onPressed: null,
-                icon: Icon(Icons.search),
-                label: Text("英雄联盟手游"))
-          ])
-        ],
-      ),
+              );
+            },
+          ),
+          automaticallyImplyLeading: false,
+          // centerTitle: false,
+          title: InkWell(
+            onTap: () {
+              Routes.navigateTo(context, Routes.searchPage);
+            },
+            child: Container(
+                width: 330.w,
+                height: 40,
+                margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.w),
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white,
+                ),
+                child: TextButton.icon(
+                    onPressed: null,
+                    icon: const Icon(Icons.search),
+                    label: Text("英雄联盟手游"))),
+          )),
       drawer: const DrawerPage(),
       body: Center(
         child: Column(

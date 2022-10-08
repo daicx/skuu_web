@@ -115,7 +115,7 @@ class _DrawerPage extends State<DrawerPage> {
             ),
             onTap: () {
               Navigator.pop(context);
-              Routes.navigateTo(context, Routes.collect, params: {});
+              Routes.navigateTo(context, Routes.collect);
             },
           ),
           ListTile(
