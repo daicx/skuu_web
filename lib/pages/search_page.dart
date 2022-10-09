@@ -53,16 +53,14 @@ class _SearchPage extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         title: Container(
           padding: const EdgeInsets.all(6.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              // SizedBox(
-              //   width: 5.0,
-              // ),
-              const Spacer(),
+              SizedBox(
+                width: 5.0,
+              ),
               const Icon(
                 Icons.search,
                 color: Colors.grey,
