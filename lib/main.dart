@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           title: 'SKUU',
-          debugShowCheckedModeBanner: true,
+          // debugShowCheckedModeBanner: true,
           theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,

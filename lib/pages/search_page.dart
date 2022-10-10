@@ -52,166 +52,54 @@ class _SearchPage extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          padding: const EdgeInsets.all(6.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                width: 5.0,
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black87),
+          backgroundColor: Colors.white,
+          title: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              hintText: 'Search',
+              border: InputBorder.none,
+              prefixIcon: Icon(Icons.search),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFFDCDFE6)),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
-              const Icon(
-                Icons.search,
-                color: Colors.grey,
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF409EFF)),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
-              Container(
-                color: Colors.white,
-                alignment: Alignment.center,
-                width: 200.w,
-                child: TextField(
-                  maxLength: 100,
-                  style: TextStyle(fontSize: 20),
-                  controller: controller,
-                  decoration: new InputDecoration(
-                    contentPadding: EdgeInsets.only(top: 0.0),
-                    hintText: 'Search',
-                    border: InputBorder.none,
-                  ),
-                  onChanged: (a) {
-                    if (a == '') {
-                      setState(() {
-                        result = false;
-                      });
-                    }
-                  },
-                ),
-              ),
-              new IconButton(
-                icon: new Icon(Icons.cancel),
-                color: Colors.grey,
-                iconSize: 18.0,
-                onPressed: () {
-                  controller.clear();
-                  setState(() {
-                    result = false;
-                  });
-                  // onSearchTextChanged('');
-                },
-              ),
-            ],
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              if (controller.text != '') {
+            ),
+            onChanged: (a) {
+              if (a == '') {
                 setState(() {
-                  result = true;
+                  result = false;
                 });
               }
             },
           ),
-        ],
-      ),
-      body: Container(
-        child: !result
-            ? Padding(
-                padding: EdgeInsets.all(10),
-                child: CustomScrollView(
-                  slivers: [
-                    SliverPadding(
-                      padding: EdgeInsets.all(8.0),
-                      sliver: SliverGrid(
-                        delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
-                          return Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  Icon(Icons.history),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  AutoSizeText(_historys[index]),
-                                  Spacer(),
-                                  IconButton(
-                                    icon: Icon(Icons.close),
-                                    onPressed: () {},
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        }, childCount: _historys.length),
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 600.0,
-                            childAspectRatio: 10 / 1,
-                            mainAxisSpacing: 5.0,
-                            crossAxisSpacing: 5.0),
-                      ),
-                    ),
-                    renderTitle('*热门搜索*'),
-                    SliverPadding(
-                      padding: EdgeInsets.all(8.0),
-                      sliver: SliverGrid(
-                        delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
-                          return Material(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  AutoSizeText(
-                                    (index + 1).toString() + '.',
-                                    style: TextStyle(
-                                        color: Colors.red, fontSize: 20),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  AutoSizeText(_hots[index]),
-                                  Spacer(),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.whatshot,
-                                      color: Colors.red,
-                                    ),
-                                    onPressed: () {},
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        }, childCount: _hots.length),
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 600.0,
-                            childAspectRatio: 10 / 1,
-                            mainAxisSpacing: 5.0,
-                            crossAxisSpacing: 5.0),
-                      ),
-                    ),
-                  ],
-                ))
-            : Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    color: Colors.blue,
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: null,
-                    ),
-                  ),
-
-                ],
-              ),
-      ),
-    );
+          actions: <Widget>[
+            TextButton(
+                onPressed: () {
+                  if (controller.text != '') {
+                    setState(() {
+                      result = true;
+                    });
+                  }
+                },
+                child: Text(
+                  '搜索',
+                  style: TextStyle(color: Colors.green),
+                ),
+                style: TextButton.styleFrom(
+                    // shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(10)),
+                    backgroundColor: Colors.black12)),
+          ],
+        ),
+        body: null);
   }
 
 // Text组件需要用SliverToBoxAdapter包裹，才能作为CustomScrollView的子组件
