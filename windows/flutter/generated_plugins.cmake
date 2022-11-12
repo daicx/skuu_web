@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  dynamic_color
+  flutter_webrtc
   url_launcher_windows
 )
 

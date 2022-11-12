@@ -16,8 +16,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   dropdown_search: ^5.0.3
   auto_size_text: ^3.0.0
+  adaptive_dialog: ^1.8.0+1
 
 dev_dependencies:
+  flutter_webrtc: ^0.9.11
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0

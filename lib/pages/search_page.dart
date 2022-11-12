@@ -74,8 +74,10 @@ class _SearchPage extends State<SearchPage> {
               suffixIcon: IconButton(
                   icon: Icon(Icons.highlight_remove, color: removeBtnColor),
                   onPressed: () {
-                    searchController.clear();
-                    removeBtnColor = Colors.transparent;
+                    setState(() {
+                      searchController.clear();
+                      removeBtnColor = Colors.transparent;
+                    });
                   }),
             ),
             onChanged: (a) {
@@ -92,26 +94,28 @@ class _SearchPage extends State<SearchPage> {
             },
           ),
           actions: <Widget>[
-            TextButton(
-                onPressed: () {
-                  if (searchController.text != '') {
-                    setState(() {
-                      result = true;
-                    });
-                  }
-                },
-                child: Text(
-                  '搜索',
-                  style: TextStyle(color: Colors.green),
-                ),
-                style: TextButton.styleFrom(
-                    // shape: RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: Colors.black12)),
+            CupertinoButton(
+              onPressed: () {
+                if (searchController.text != '') {
+                  setState(() {
+                    result = true;
+                  });
+                }
+              },
+              child: Text(
+                '搜索',
+                // style: TextStyle(color: Colors.white),
+              ),
+              // style: TextButton.styleFrom(
+              //     // shape: RoundedRectangleBorder(
+              //     //     borderRadius: BorderRadius.circular(10)),
+              //     backgroundColor: Colors.green)
+            ),
           ],
         ),
         body: SearchDefItem());
   }
+
   // SingleChildScrollView listDefView(){
   //   return SingleChildScrollView(
   //       child:Column(
