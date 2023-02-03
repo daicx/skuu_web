@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../main.dart';
+import '../pages/index/home.dart';
 import '../pages/search_page.dart';
 
 var rootHandler = Handler(

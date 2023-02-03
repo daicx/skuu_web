@@ -20,7 +20,7 @@ class MyFlatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
       onPressed: onPress,
       child: Column(
         mainAxisSize: MainAxisSize.min,
