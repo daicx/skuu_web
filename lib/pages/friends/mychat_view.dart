@@ -122,7 +122,7 @@ class _MyChatView extends State<MyChatView> {
           textInputAction: TextInputAction.send,
           user: user,
           inputDecoration:
-              InputDecoration.collapsed(hintText: "Add message here..."),
+              InputDecoration.collapsed(hintText: "请输入内容"),
           dateFormat: DateFormat('yyyy-MM-dd'),
           timeFormat: DateFormat('HH:mm'),
           messages: messages,

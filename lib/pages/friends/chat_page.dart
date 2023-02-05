@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skuu_web/pages/friends/chat_pagev2.dart';
 
 import '../../route/routers.dart';
-import 'mychat_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,16 +40,21 @@ class _ChatPage extends State<ChatPage> {
       "1",
       "1",
       "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     double wid = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-        body:
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+    return Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
       Expanded(
         flex: 2,
         child: Container(
@@ -66,12 +71,10 @@ class _ChatPage extends State<ChatPage> {
           flex: 5,
           child: Container(
             color: Colors.greenAccent,
-            child: MyChatView(
-              title: "众里寻他千百度" + index.toString(),
-            ),
+            child: ChatPageV2(chatId:index),
           ),
         ),
-    ]));
+    ]);
   }
 
   Widget getRow(int i) {
@@ -107,7 +110,7 @@ class _ChatPage extends State<ChatPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '啊发防腐剂发防腐剂发防腐剂发防腐剂爱',
+                    '北京2群',
                     textAlign: TextAlign.left,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.black, fontSize: 15),
@@ -116,7 +119,7 @@ class _ChatPage extends State<ChatPage> {
                     height: 5,
                   ),
                   Text(
-                    '大大大大大热',
+                    '晴天：大大大大大热',
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.grey, fontSize: 12),
@@ -132,14 +135,6 @@ class _ChatPage extends State<ChatPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    '12:00',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.grey, fontSize: 13),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   InkWell(
                     onHover: (a) {},
                     onTap: () {
@@ -152,7 +147,17 @@ class _ChatPage extends State<ChatPage> {
                       color: Colors.grey,
                       size: notiSize,
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    '12:00',
+                    textAlign: TextAlign.left,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.grey, fontSize: 13),
+                  ),
                 ],
               ),
             ),
@@ -164,7 +169,7 @@ class _ChatPage extends State<ChatPage> {
           index = i;
           //记录选中的下标
           if(MediaQuery.of(context).size.width<700)
-          Routes.navigateTo(context, Routes.chat,params: {'title': ['众里寻他千百度']});
+          Routes.navigateTo(context, Routes.chat,params: {'chatId': [index.toString()]});
         });
       },
     );

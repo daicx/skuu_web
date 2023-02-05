@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:skuu_web/pages/friends/chat_pagev2.dart';
 
 import '../component/friend_detail.dart';
 import '../component/play_video_page.dart';
@@ -15,10 +16,10 @@ var rootHandler = Handler(
   return MyHomePage();
 });
 var chathandle = Handler(
-    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  String title = params['title']!.first;
-  return MyChatView(
-    title: title,
+    handlerFunc: (BuildContext? context, Map<String, List<dynamic>> params) {
+  var title = params['chatId']!.first;
+  return ChatPageV2(
+    chatId: int.parse(title),
   );
 });
 var friendDetailhandle = Handler(

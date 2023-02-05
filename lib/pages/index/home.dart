@@ -60,8 +60,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               '影视',
               '短视频',
             ];
-            tabBoby = [ MyVideoLongItem(),
-              MyVideoShortItem(),];
+            tabBoby = [
+              MyVideoLongItem(),
+              MyVideoShortItem(),
+            ];
             break;
           }
         case 2:
@@ -70,17 +72,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               '消息',
               '好友',
             ];
-            tabBoby = [ChatPage(),
-              FriendsPage(),];
+            tabBoby = [
+              ChatPage(),
+              FriendsPage(),
+            ];
             break;
           }
         case 3:
           {
-            _tabTitle = [
-              '作品', '兔窝'
+            _tabTitle = ['作品', '兔窝'];
+            tabBoby = [
+              MyWorks(),
+              MyTeams(),
             ];
-            tabBoby = [ MyWorks(),
-              MyTeams(),];
             break;
           }
       }
@@ -173,11 +177,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
       drawer: const DrawerPage(),
       body: getTabBar(_tabTitle, tabBoby).values.first,
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: '发布',
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: _selected == 2
+          ? null
+          : FloatingActionButton(
+              onPressed: null,
+              tooltip: '发布',
+              child: const Icon(Icons.add),
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
