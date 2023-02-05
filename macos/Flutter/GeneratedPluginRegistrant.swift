@@ -8,7 +8,7 @@ import Foundation
 import dynamic_color
 import flutter_webrtc
 import macos_ui
-import path_provider_macos
+import path_provider_foundation
 import sqflite
 import url_launcher_macos
 

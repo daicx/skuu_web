@@ -12,7 +12,7 @@ class Routes {
   static String care = "/cares";
   static String collect = "/collects";
   static String watch = "/watchs";
-  static String whatArticle = "/what_article";
+  static String whatArticle = "/look_article";
   static String searchPage = "/search_page";
 
   static void configureRoutes(FluroRouter fluroRouter) {
@@ -24,12 +24,12 @@ class Routes {
       return;
     });
     router.define(root, handler: rootHandler);
-    // router.define(chat, handler: chathandle);
-    // router.define(friendDetail, handler: friendDetailhandle);
-    // router.define(care, handler: carehandle);
-    // router.define(collect, handler: collecthandle);
-    // router.define(watch, handler: watchthandle);
-    // router.define(whatArticle, handler: whatArticlehandle);
+    router.define(chat, handler: chathandle);
+    router.define(friendDetail, handler: friendDetailhandle);
+    router.define(care, handler: carehandle);
+    router.define(collect, handler: collecthandle);
+    router.define(watch, handler: watchthandle);
+    router.define(whatArticle, handler: whatArticlehandle);
     router.define(searchPage, handler: searchPagehandle);
   }
 

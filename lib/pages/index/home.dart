@@ -5,6 +5,13 @@ import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/route/routers.dart';
 
 import '../../component/mybutton.dart';
+import '../../component/myvideo_long_item.dart';
+import '../../component/myvideo_short_item.dart';
+import '../friends/chat_page.dart';
+import '../friends/friends_page.dart';
+import '../me/myteams.dart';
+import '../me/myworks.dart';
+import 'home_item_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -36,8 +43,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           {
             _tabTitle = ['关注', '推荐', '热榜', '视频', '图片', '游戏', '小说', '问答'];
             tabBoby = [
-              MyGridView(),
-              MyGridView(),
+              HomeItemPage(),
+              HomeItemPage(),
               MyGridView(),
               MyGridView(),
               MyGridView(),
@@ -50,19 +57,30 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         case 1:
           {
             _tabTitle = [
-              '关注',
-              '推荐',
+              '影视',
+              '短视频',
             ];
-            tabBoby = [MyGridView(), MyGridView()];
+            tabBoby = [ MyVideoLongItem(),
+              MyVideoShortItem(),];
             break;
           }
         case 2:
           {
             _tabTitle = [
-              '关注',
-              '推荐',
+              '消息',
+              '好友',
             ];
-            tabBoby = [];
+            tabBoby = [ChatPage(),
+              FriendsPage(),];
+            break;
+          }
+        case 3:
+          {
+            _tabTitle = [
+              '作品', '兔窝'
+            ];
+            tabBoby = [ MyWorks(),
+              MyTeams(),];
             break;
           }
       }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/pages/index/home.dart';
 import 'package:skuu_web/route/routers.dart';
+import 'dart:html';
+
 
 void main() {
   FluroRouter router = new FluroRouter();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          title: 'SKUU',
+          title: 'skuu',
           // debugShowCheckedModeBanner: true,
           theme: ThemeData(
             primarySwatch: Colors.blue,
