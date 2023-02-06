@@ -5,7 +5,6 @@ import 'package:skuu_web/pages/friends/chat_pagev2.dart';
 import '../component/friend_detail.dart';
 import '../component/play_video_page.dart';
 import '../component/watch_article.dart';
-import '../pages/friends/mychat_view.dart';
 import '../pages/index/home.dart';
 import '../pages/meleft/mycare_page.dart';
 import '../pages/meleft/mycollect_page.dart';

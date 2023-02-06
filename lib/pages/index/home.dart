@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/route/routers.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../component/mybutton.dart';
 import '../../component/myvideo_long_item.dart';
@@ -145,6 +146,20 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         label: Text("英雄联盟手游"))),
               ),
               bottom: getTabBar(_tabTitle, tabBoby).keys.first,
+              actions: [
+                Container(
+                  width: 100,
+                  child: TextButton(
+                    child: Text(
+                      '京ICP备2022023998号',
+                      style: TextStyle(color: Colors.grey,fontSize: 10),
+                    ),
+                    onPressed: () {
+                      _launchURL(Uri(scheme: 'https',host: 'beian.miit.gov.cn'));
+                    },
+                  ),
+                )
+              ],
             )
           : AppBar(
               leading: Builder(
@@ -253,5 +268,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         ),
       )
     };
+  }
+
+  _launchURL(url) async {
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
