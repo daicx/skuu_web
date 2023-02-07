@@ -1,5 +1,6 @@
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../demo/chat/chat_data.dart';
 
@@ -10,7 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Material",
-      home: ChatPageV2(chatId: 12,),
+      home: ChatPageV2(
+        chatId: 12,
+      ),
     );
   }
 }
@@ -31,7 +34,19 @@ class _ChatPageV2 extends State<ChatPageV2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.chatId.toString()),
+        backgroundColor: Colors.white,
+        leading: BackButton(color: Colors.blue,),
+        title: Text(
+          widget.chatId.toString(),
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
+          IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.more_horiz,
+              ))
+        ],
       ),
       body: DashChat(
         currentUser: user,

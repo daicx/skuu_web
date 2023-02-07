@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skuu_web/cache/deferred_widget.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../component/mybutton.dart';
-import '../../component/myvideo_long_item.dart';
-import '../../component/myvideo_short_item.dart';
-import '../friends/chat_page.dart';
+import '../video/myvideo_long_item.dart';
+import '../video/myvideo_short_item.dart';
+import '../friends/chat_page_list.dart';
 import '../friends/friends_page.dart';
 import '../me/myteams.dart';
 import '../me/myworks.dart';
@@ -62,8 +63,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               '短视频',
             ];
             tabBoby = [
+              // AppDeferredWidget(
+              //   libraryLoader: myvideo_long_item.loadLibrary,
+              //   builder: () => myvideo_long_item.MyVideoLongItem(),
+              // ),
               MyVideoLongItem(),
               MyVideoShortItem(),
+              // AppDeferredWidget(
+              //   libraryLoader: myvideo_short_item.loadLibrary,
+              //   builder: () => myvideo_short_item.MyVideoShortItem(),
+              // ),
             ];
             break;
           }
@@ -74,8 +83,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               '好友',
             ];
             tabBoby = [
-              ChatPage(),
+              ChatPageList(),
               FriendsPage(),
+              // AppDeferredWidget(
+              //   libraryLoader: chat_page.loadLibrary,
+              //   builder: () => chat_page.ChatPage(),
+              // ),
+              // AppDeferredWidget(
+              //   libraryLoader: friends_page.loadLibrary,
+              //   builder: () => friends_page.FriendsPage(),
+              // ),
             ];
             break;
           }
@@ -85,6 +102,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             tabBoby = [
               MyWorks(),
               MyTeams(),
+              // AppDeferredWidget(
+              //   libraryLoader: myworks.loadLibrary,
+              //   builder: () => myworks.MyWorks(),
+              // ),
+              // AppDeferredWidget(
+              //   libraryLoader: myteams.loadLibrary,
+              //   builder: () => myteams.MyTeams(),
+              // ),
             ];
             break;
           }
@@ -131,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   Routes.navigateTo(context, Routes.searchPage);
                 },
                 child: Container(
-                    width: 330.w,
+                    width: 0.8.sw,
                     height: 40,
                     margin:
                         EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.w),
@@ -152,10 +177,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   child: TextButton(
                     child: Text(
                       '京ICP备2022023998号',
-                      style: TextStyle(color: Colors.grey,fontSize: 10),
+                      style: TextStyle(color: Colors.grey, fontSize: 10),
                     ),
                     onPressed: () {
-                      _launchURL(Uri(scheme: 'https',host: 'beian.miit.gov.cn'));
+                      _launchURL(
+                          Uri(scheme: 'https', host: 'beian.miit.gov.cn'));
                     },
                   ),
                 )
@@ -253,10 +279,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       TabBar(
         controller: _controller, //控制器
         indicatorSize: TabBarIndicatorSize.label,
+        isScrollable: _tabTitle.length > 2 ? true : false,
         tabs: _tabTitle.map((e) {
           return Container(
-            height: 50,
-            width: 80,
+            height: 120.h,
+            width: 100.w,
             alignment: Alignment.center,
             child: Text(e),
           );

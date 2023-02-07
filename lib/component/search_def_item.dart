@@ -62,7 +62,7 @@ class _SearchDefItem extends State<SearchDefItem> {
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverAppBar(
-                  expandedHeight: 250.h,
+                  expandedHeight: 900.h,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Column(
                       children: [

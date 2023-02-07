@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      // designSize: const Size(360, 690),
+      designSize: const Size(1170, 2532),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 4.sp),
           ),
           home: const MyHomePage(),
         );

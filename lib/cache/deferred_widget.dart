@@ -1,61 +1,92 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-typedef LibraryLoader = Future<void> Function();
-typedef DeferredWidgetBuilder = Widget Function();
+/// loadLibrary
+typedef AppLibraryLoader = Future<dynamic> Function();
 
+/// deferredWidgetBuilder
+typedef AppDeferredWidgetBuilder = Widget Function();
 
-///延迟加载组件
-class DeferredWidget extends StatefulWidget {
-  DeferredWidget(this.libraryLoader, this.createWidget,
-      {Key? key, Widget? placeholder})
-      : placeholder =
-      placeholder ?? Container(color: Colors.grey),
+/// 延迟加载组件
+/// 不在 build 里使用 FutureBuilder 加载，因为 build 执行多少次就会导致 widget 创建多少次
+/// 这里在 initState 加载，或者当 AppDeferredWidgetBuilder 改变时重新加载
+class AppDeferredWidget extends StatefulWidget {
+  const AppDeferredWidget({
+    Key? key,
+    required this.libraryLoader,
+    required this.builder,
+    Widget? placeholder,
+  })
+      : placeholder = placeholder ?? const AppDeferredLoading(),
         super(key: key);
 
-  final LibraryLoader libraryLoader;
-  final DeferredWidgetBuilder createWidget;
+  final AppLibraryLoader libraryLoader;
+  final AppDeferredWidgetBuilder builder;
   final Widget placeholder;
-  // 存储 libraryLoader 对应的 future 数据
-  static final Map<LibraryLoader, Future<void>> _moduleLoaders = {};
-  // 存储已经预加载过了的 libraryLoader
-  static final Set<LibraryLoader> _loadedModules = {};
 
-  static Future<void>? preload(LibraryLoader loader) {
+  static final Map<AppLibraryLoader, Future<dynamic>> _moduleLoaders =
+  <AppLibraryLoader, Future<dynamic>>{};
+  static final Set<AppLibraryLoader> _loadedModules = <AppLibraryLoader>{};
+
+  /// 预加载
+  static Future<dynamic> preload(AppLibraryLoader loader) {
     if (!_moduleLoaders.containsKey(loader)) {
-      _moduleLoaders[loader] = loader().then((dynamic _) {
+      _moduleLoaders[loader] = loader().then((_) {
         _loadedModules.add(loader);
       });
     }
-    return _moduleLoaders[loader];
+    return _moduleLoaders[loader]!;
   }
 
   @override
-  _DeferredWidgetState createState() => _DeferredWidgetState();
+  State<AppDeferredWidget> createState() => _AppDeferredWidgetState();
 }
 
-class _DeferredWidgetState extends State<DeferredWidget> {
+class _AppDeferredWidgetState extends State<AppDeferredWidget> {
   Widget? _loadedChild;
+  AppDeferredWidgetBuilder? _loadedBuilder;
 
   @override
   void initState() {
-    if (DeferredWidget._loadedModules.contains(widget.libraryLoader)) {
+    super.initState();
+    if (AppDeferredWidget._moduleLoaders.containsKey(widget.libraryLoader)) {
       _onLibraryLoaded();
     } else {
-      DeferredWidget.preload(widget.libraryLoader)
-          ?.then((dynamic _) => _onLibraryLoaded());
+      AppDeferredWidget.preload(widget.libraryLoader)
+          .then((_) => _onLibraryLoaded());
     }
-    super.initState();
   }
 
   void _onLibraryLoaded() {
     setState(() {
-      _loadedChild = widget.createWidget();
+      _loadedBuilder = widget.builder;
+      _loadedChild = _loadedBuilder?.call();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_loadedBuilder != widget.builder && _loadedChild != null) {
+      _loadedBuilder = widget.builder;
+      _loadedChild = _loadedBuilder?.call();
+    }
     return _loadedChild ?? widget.placeholder;
+  }
+}
+
+/// 延迟加载Loading
+class AppDeferredLoading extends StatelessWidget {
+  const AppDeferredLoading({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      alignment: Alignment.center,
+      // child: const AppLogo(),
+      child: Container(
+        color: Colors.black12,
+      ),
+    );
   }
 }

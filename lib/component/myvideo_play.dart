@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 
 void main() => runApp(MyApp());
@@ -105,7 +106,7 @@ class _MyVideo extends State<MyVideo> {
                             Icons.play_circle_filled,
                           ),
                           onPressed: () => {_controller.play()},
-                          iconSize: 60,
+                          iconSize: 80,
                         )),
                     ],
                   ),
@@ -114,7 +115,7 @@ class _MyVideo extends State<MyVideo> {
             VideoProgressIndicator(
               _controller,
               allowScrubbing: true,
-              padding: EdgeInsets.all(0),
+              padding: EdgeInsets.all(10),
             ),
           ]),
         ),
@@ -178,11 +179,11 @@ class _MyVideo extends State<MyVideo> {
   Widget botomBar() {
     return Column(
       children: <Widget>[
-        VideoProgressIndicator(
-          _controller,
-          allowScrubbing: true,
-          padding: EdgeInsets.all(10),
-        ),
+        // VideoProgressIndicator(
+        //   _controller,
+        //   allowScrubbing: true,
+        //   padding: EdgeInsets.all(10),
+        // ),
         Row(
           children: <Widget>[
             IconButton(
@@ -204,7 +205,8 @@ class _MyVideo extends State<MyVideo> {
             SizedBox(
               width: 10,
             ),
-            Expanded(child: TextButton.icon(
+            Spacer(),
+            TextButton.icon(
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.transparent)
               ),
@@ -238,10 +240,7 @@ class _MyVideo extends State<MyVideo> {
                 )
                     : null,
               ),
-            ),),
-
-
-            // Spacer(),
+            ),
             //全屏按钮
             IconButton(
               onPressed: () {

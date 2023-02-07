@@ -15,6 +15,13 @@ class FriendDetail extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: Text('用户详情'),
+          actions: [
+            IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.more_horiz,
+                ))
+          ],
         ),
         body: getContent(),
       );
@@ -48,7 +55,7 @@ class FriendDetail extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        '发发发发发',
+                        '新人类文明',
                         textAlign: TextAlign.left,
                         style: TextStyle(color: Colors.grey, fontSize: 21),
                       ),
@@ -88,18 +95,18 @@ class FriendDetail extends StatelessWidget {
                       style: TextStyle(fontSize: 21),
                     ),
                     Text(
-                      '在哪里',
+                      '北京-海淀',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 21),
                     ),
                   ]),
                   TableRow(children: [
                     Text(
-                      '兔子号',
+                      'skuu号',
                       style: TextStyle(fontSize: 21),
                     ),
                     Text(
-                      'adadad',
+                      'sk-001',
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 21),
                     ),

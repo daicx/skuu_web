@@ -13,7 +13,7 @@ dependencies:
   fluro: ^2.0.4
   flutter_screenutil: ^5.5.4
   dash_chat_2: ^0.0.15
-  cupertino_icons: ^1.0.2
+#  cupertino_icons: ^1.0.2
   dropdown_search: ^5.0.3
   auto_size_text: ^3.0.0
   adaptive_dialog: ^1.8.0+1
@@ -21,6 +21,8 @@ dependencies:
   dash_chat: ^1.1.16
   image_network: ^2.5.1
   url_launcher: ^6.1.8
+  flukit: ^3.0.1
+  azlistview: ^2.0.0
 
 dev_dependencies:
   flutter_webrtc: ^0.9.11
@@ -29,6 +31,14 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 flutter:
   uses-material-design: true
+#  fonts:
+    #设置字体后，反而变慢了
+#    - family: Noto
+#      fonts:
+#        - asset: fonts/NotoSansSC-Bold.otf
+#        - asset: fonts/NotoSansSC-Medium.otf
+#        - asset: fonts/NotoSansSC-Regular.otf
+#          style: normal
   assets:
     - imgs/index1.png
     - imgs/index1_select.png
@@ -68,3 +78,5 @@ flutter:
     - imgs/link.png
     - imgs/qq.png
     - imgs/wechat.png
+    - imgs/defbak.png
+    - imgs/defbak1.png

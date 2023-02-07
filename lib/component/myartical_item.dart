@@ -21,7 +21,7 @@ class _MyArticalItem extends State<MyArticalItem> {
   @override
   void initState() {
     super.initState();
-    name = "而且大都";
+    name = "新飞飞";
     _items.addAll([
       '1',
       '1',

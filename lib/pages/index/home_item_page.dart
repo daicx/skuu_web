@@ -1,9 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../component/myshort_video_item.dart';
+import 'myindex_video_item.dart';
 import 'myimg_item.dart';
 
 //首页
@@ -56,9 +58,9 @@ class _HomeItemPage extends State<HomeItemPage> {
             if (index % 2 == 0) {
               return Material(
                 child: Container(
-                  height: getHeight(),
+                  height: getImgItemHeight(index > 6 ? 6 : index),
                   child: MyImgItem(
-                    id: index,
+                    id: index > 6 ? 6 : index,
                   ),
                 ),
                 borderRadius: BorderRadius.circular(10.0),
@@ -67,8 +69,8 @@ class _HomeItemPage extends State<HomeItemPage> {
               return Material(
                 borderRadius: BorderRadius.circular(10.0),
                 child: Container(
-                  height: getHeight()-20.w,
-                  child: MyShortVideoItem(),
+                  height: getVideoItemHeight(),
+                  child: MyIndexVideoItem(),
                 ),
               );
             }
@@ -82,22 +84,44 @@ class _HomeItemPage extends State<HomeItemPage> {
     // print(len);
     if (len < 1000) {
       return 1;
-    } else if (len >= 1000 && len < 1450) {
-      // } else if (len >= 1000 && len < 1430) {
-      return 2;
-      // } else if (len >= 1430 && len < 2300) {
-    } else if (len >= 1450 && len < 2000) {
-      return 3;
+      // } else if (len >= 1000 && len < 1450) {
+      //   // } else if (len >= 1000 && len < 1430) {
+      //   return 2;
+      //   // } else if (len >= 1430 && len < 2300) {
+      // } else if (len >= 1450 && len < 2000) {
+      //   return 3;
+      // } else {
     } else {
-      return 4;
+      return 2;
     }
   }
 
-  double getHeight() {
-    if (colCount == 1) {
-      return 350.w;
-    } else {
-      return 170.w;
+  //动态根据图片个数算item高度
+  double getImgItemHeight(int itemCount) {
+    //没有图片的时候
+    if (itemCount == 0) {
+      return 155;
     }
+    double widthItem = 1.sw;
+    if (colCount > 1) {
+      widthItem = 0.5.sw;
+    }
+    //图片超过3个的时候，高度固定
+    if (itemCount > 3) {
+      return (2 / 3) * widthItem + 120;
+    }
+    return widthItem / itemCount + 130;
+  }
+
+  double getVideoItemHeight() {
+    double widthItem = 1.sw;
+    if (colCount > 1) {
+      widthItem = 0.5.sw;
+    }
+    return widthItem / (15/9) + 150;
+  }
+
+  int getImgItemCount() {
+    return Random().nextInt(3) + 1;
   }
 }

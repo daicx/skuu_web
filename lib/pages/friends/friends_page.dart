@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../component/friend_detail.dart';
 import '../../route/routers.dart';
+import 'friend_detail.dart';
 
 void main() => runApp(MyApp());
 
@@ -49,9 +49,7 @@ class _FriendsPage extends State<FriendsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:
-            Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+    return Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
       Expanded(
         flex: 2,
         child: Container(
@@ -63,22 +61,23 @@ class _FriendsPage extends State<FriendsPage> {
           ),
         ),
       ),
-      if(MediaQuery.of(context).size.width>700)
-      Expanded(
-        flex: 5,
-        child: Container(
-          color: Colors.black12,
-          alignment: Alignment.center,
+      if (MediaQuery.of(context).size.width > 700)
+        Expanded(
+          flex: 5,
           child: Container(
-            width: 400,
-            height: 400,
-            child: FriendDetail(title: _datas[index]+index.toString(),),
+            color: Colors.black12,
+            alignment: Alignment.center,
+            child: Container(
+              width: 400,
+              height: 400,
+              child: FriendDetail(
+                title: _datas[index] + index.toString(),
+              ),
+            ),
           ),
         ),
-      ),
-    ]));
+    ]);
   }
-
 
   Widget getRow(int i) {
     return GestureDetector(
@@ -109,7 +108,7 @@ class _FriendsPage extends State<FriendsPage> {
             Expanded(
               flex: 5,
               child: Text(
-                '啊发防腐剂发防腐剂发防腐剂发防腐剂爱',
+                '新飞飞',
                 textAlign: TextAlign.left,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: Colors.black, fontSize: 20),
@@ -121,8 +120,10 @@ class _FriendsPage extends State<FriendsPage> {
       onTap: () {
         setState(() {
           index = i; //记录选中的下标
-          if(MediaQuery.of(context).size.width<700)
-          Routes.navigateTo(context, Routes.friendDetail,params: {'title': ['众里寻他千百度']});
+          if (MediaQuery.of(context).size.width < 700)
+            Routes.navigateTo(context, Routes.friendDetail, params: {
+              'title': ['众里寻他千百度']
+            });
         });
       },
     );
