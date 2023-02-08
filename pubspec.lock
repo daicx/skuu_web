@@ -33,14 +33,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-  azlistview:
-    dependency: "direct main"
-    description:
-      name: azlistview
-      sha256: "93e865f11777a271b439f0d6b00799c0797e9daeec2e082a2e01373809c4b90d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -328,6 +320,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  lpinyin:
+    dependency: "direct main"
+    description:
+      name: lpinyin
+      sha256: "0bb843363f1f65170efd09fbdfc760c7ec34fc6354f9fcb2f89e74866a0d814a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   macos_ui:
     dependency: transitive
     description:
@@ -489,13 +489,13 @@ packages:
     source: hosted
     version: "0.27.7"
   scrollable_positioned_list:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: scrollable_positioned_list
-      sha256: "9566352ab9ba05794ee6c8864f154afba5d36c5637d0e3e32c615ba4ceb92772"
+      sha256: ca7fcaa743db712d4f7b1580526f494d0093c77a721a65705ee51fbeac7a2bd3
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3"
+    version: "0.3.5"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -593,10 +593,10 @@ packages:
     dependency: "direct main"
     description:
       name: url_launcher
-      sha256: "698fa0b4392effdc73e9e184403b627362eb5fbf904483ac9defbb1c2191d809"
+      sha256: e8f2efc804810c0f2f5b485f49e7942179f56eabcfe81dce3387fec4bb55876b
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.8"
+    version: "6.1.9"
   url_launcher_android:
     dependency: transitive
     description:
@@ -609,10 +609,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_ios
-      sha256: bb328b24d3bccc20bdf1024a0990ac4f869d57663660de9c936fb8c043edefe3
+      sha256: "0a5af0aefdd8cf820dd739886efb1637f1f24489900204f50984634c07a54815"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.18"
+    version: "6.1.0"
   url_launcher_linux:
     dependency: transitive
     description:

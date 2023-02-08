@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skuu_web/constant/constant.dart';
 
 import '../../component/level_icon.dart';
 import '../../component/myshare_page.dart';
@@ -57,8 +58,8 @@ class _MyImgItem extends State<MyImgItem> {
                   onTap: () {},
                   child: Image.asset(
                     'imgs/img_default.png',
-                    width: 60,
-                    height: 60,
+                    width: Constant.HEAD_IMG_SEZE,
+                    height: Constant.HEAD_IMG_SEZE,
                   ),
                 ),
                 Column(

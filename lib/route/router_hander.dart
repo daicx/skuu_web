@@ -10,7 +10,7 @@ import '../component/watch_article.dart' deferred as watch_article;
 import '../pages/index/home.dart';
 import '../pages/meleft/mycare_page.dart' deferred as mycare_page;
 import '../pages/meleft/mycollect_page.dart' deferred as mycollect_page;
-import '../pages/search_page.dart' deferred as search_page;
+import '../pages/search/search_page.dart' deferred as search_page;
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {

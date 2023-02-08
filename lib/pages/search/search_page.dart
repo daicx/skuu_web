@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../component/search_def_item.dart';
+import 'search_def_item.dart';
 
 //查询页面
 class SearchPage extends StatefulWidget {
