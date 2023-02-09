@@ -1,20 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:skuu_web/pages/watchvideo/component_item.dart';
 
 import 'mytabbar_video.dart';
-import 'myvideo_play.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Material",
-      home: PlayVideoPage(),
-    );
-  }
-}
+import '../../component/myvideo_play.dart';
 
 class PlayVideoPage extends StatefulWidget {
   @override
@@ -26,6 +15,7 @@ class PlayVideoPage extends StatefulWidget {
 class _PlayVideoPage extends State<PlayVideoPage> {
   int contentLine = 4;
   bool hiddenRight = false;
+  bool _care = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,20 +34,14 @@ class _PlayVideoPage extends State<PlayVideoPage> {
         child: Row(
           children: [
             Expanded(
-              flex: 1,
               child: Container(
-                color: Colors.white,
+                height: double.infinity,
+                child: left(),
               ),
             ),
-            Expanded(
-                flex: 25,
-                child: Container(
-                  height: double.infinity,
-                  child: left(),
-                )),
             if (hiddenRight)
               SizedBox(
-                width: 25,
+                width: 20,
               ),
             if (hiddenRight)
               Container(
@@ -65,12 +49,6 @@ class _PlayVideoPage extends State<PlayVideoPage> {
                 height: double.infinity,
                 child: MyTabBarVideo(),
               ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.white,
-              ),
-            ),
           ],
         ),
       ),
@@ -82,11 +60,11 @@ class _PlayVideoPage extends State<PlayVideoPage> {
         child: Column(
       children: [
         AspectRatio(
-          aspectRatio: 17 / 10,
+          aspectRatio: 16 / 10,
           child: MyVideo(
             url:
                 'https://cloud.video.taobao.com//play/u/153810888/p/2/e/6/t/1/266102583124.mp4',
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         Container(
@@ -126,8 +104,8 @@ class _PlayVideoPage extends State<PlayVideoPage> {
               children: <Widget>[
                 Image.asset(
                   'imgs/img_default.png',
-                  width: 50,
-                  height: 50,
+                  width: 60,
+                  height: 60,
                 ),
               ],
             ),
@@ -136,11 +114,14 @@ class _PlayVideoPage extends State<PlayVideoPage> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Text(
-                      '哒哒哒哒',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.black, fontSize: 11),
-                      textScaleFactor: 1.5,
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        '哒哒哒哒',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.black, fontSize: 20),
+                        // textScaleFactor: 1.5,
+                      ),
                     ),
                     Image.asset(
                       'imgs/img_default.png',
@@ -156,7 +137,7 @@ class _PlayVideoPage extends State<PlayVideoPage> {
                 Text(
                   '粉丝 32 KW ',
                   textAlign: TextAlign.left,
-                  style: TextStyle(color: Colors.black87, fontSize: 4),
+                  style: TextStyle(color: Colors.black87, fontSize: 15),
                 ),
               ],
             ),
@@ -164,14 +145,18 @@ class _PlayVideoPage extends State<PlayVideoPage> {
             Column(
               children: <Widget>[
                 SizedBox(
-                  width: 60,
+                  width: 80,
                   height: 30,
                   child: ElevatedButton(
                     child: Text(
-                      "关注",
-                      style: TextStyle(fontSize: 10),
+                      _care ? "已关注" : "+ 关注",
+                      style: const TextStyle(fontSize: 12),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        _care = !_care;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -183,7 +168,10 @@ class _PlayVideoPage extends State<PlayVideoPage> {
           child: Container(
             alignment: Alignment.centerLeft,
             child: Text(
-              '《死路》讲述了一家人在圣诞前夕经历一场恐怖遭遇的故事。别忘点击订阅，打开小铃铛哦~加入频道会员，每周抢先观看2集未发布视频微信公众号：宇哥讲电影（求大家关注商务合作，请加微信yimingfirstfacebook主页：https://www.facebook.com/yugemv/',
+              '《死路》讲述了一家人在圣诞前夕经历一场恐怖遭遇的故事。别忘点击订阅，'
+              '打开小铃铛哦~加入频道会员，每周抢先观看2集未发布视频微信公众号：'
+              '宇哥讲电影（求大家关注商务合作，请加微信yimingfirstfacebook主页：'
+              'https://www.facebook.com/yugemv/',
               style: TextStyle(fontSize: 15),
               maxLines: contentLine,
             ),
@@ -208,6 +196,11 @@ class _PlayVideoPage extends State<PlayVideoPage> {
           height: 1,
           color: Colors.grey,
         ),
+        if (!hiddenRight)
+          Container(
+            height: 1.sh - 60,
+            child: MyTabBarVideo(),
+          )
       ],
     ));
   }

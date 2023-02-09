@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import '../../route/routers.dart';
+
 import '../../component/level_icon.dart';
 import '../../component/myshare_page.dart';
 import '../../component/myvideo_play.dart';
+import '../../route/routers.dart';
 
 //首页-视频
 class MyIndexVideoItem extends StatefulWidget {

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/cache/deferred_widget.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
+import 'package:skuu_web/pages/friends/user_detail_page.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -100,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           {
             _tabTitle = ['作品', '兔窝'];
             tabBoby = [
-              MyWorks(),
+              UserDetailPage(12),
               MyTeams(),
               // AppDeferredWidget(
               //   libraryLoader: myworks.loadLibrary,
@@ -291,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ): Center(
         child: TabBarView(
           controller: _controller,
-          physics: _selected == 2
+          physics: _selected == 2 || _selected == 3
               ? NeverScrollableScrollPhysics()
               : AlwaysScrollableScrollPhysics(), //禁止滑动
           children: tabBoby,

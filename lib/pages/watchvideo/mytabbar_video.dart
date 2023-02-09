@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skuu_web/pages/friends/chat_pagev2.dart';
 
-import 'my_play_video_list.dart';
-import 'mycomponent_view.dart';
+import 'component_item.dart';
+import 'wait_play_video_list.dart';
+import '../../component/mycomponent_view.dart';
 
 //控制评论和下一个播放
 class MyTabBarVideo extends StatefulWidget {
@@ -12,7 +14,7 @@ class MyTabBarVideo extends StatefulWidget {
   }
 }
 
-class _MyTabBarVideo extends State<MyTabBarVideo> {
+class _MyTabBarVideo extends State<MyTabBarVideo> with SingleTickerProviderStateMixin{
   int _selected = 0;
   late String bodyContent;
   final List<String> _tabValues = [];
@@ -22,12 +24,12 @@ class _MyTabBarVideo extends State<MyTabBarVideo> {
   void initState() {
     super.initState();
     _tabValues.addAll([
-      '评论',
+      '弹幕',
       '接下来播放',
     ]);
     _controller = TabController(
       length: _tabValues.length,
-      vsync: ScrollableState(),
+      vsync: this,
     );
   }
 
@@ -36,14 +38,15 @@ class _MyTabBarVideo extends State<MyTabBarVideo> {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: Center(child: getTabBar()),
       ),
       body: TabBarView(
         controller: _controller,
         children: [
-          MyComponentView(),
-          MyPlayVideoList(title: '',),
+          ComponentItem(),
+          WaitPlayVideoList(title: '',),
         ],
       ),
     );
@@ -52,7 +55,7 @@ class _MyTabBarVideo extends State<MyTabBarVideo> {
   TabBar getTabBar() {
     return TabBar(
       controller: _controller, //控制器
-      isScrollable: true,
+      // isScrollable: true,
       indicatorSize: TabBarIndicatorSize.label,
       tabs: _tabValues.map((e) {
         return Container(

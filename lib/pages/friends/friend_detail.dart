@@ -7,23 +7,7 @@ class FriendDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double wid = MediaQuery.of(context).size.width;
-    if (wid < 700) {
-      return Scaffold(
-          appBar: AppBar(
-            title: Text('用户详情'),
-            actions: [
-              IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.more_horiz,
-                  ))
-            ],
-          ),
-          body: getContent());
-    } else {
-      return getContent();
-    }
+    return getContent();
   }
 
   Widget getContent() {
@@ -35,20 +19,20 @@ class FriendDetail extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          title,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black, fontSize: 30),
-                        ),
-                        Image.asset(
-                          'imgs/img_default.png',
-                          width: 30,
-                          height: 30,
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: <Widget>[
+                    //     Text(
+                    //       title,
+                    //       textAlign: TextAlign.left,
+                    //       style: TextStyle(color: Colors.black, fontSize: 30),
+                    //     ),
+                    //     Image.asset(
+                    //       'imgs/img_default.png',
+                    //       width: 30,
+                    //       height: 30,
+                    //     ),
+                    //   ],
+                    // ),
                     Text(
                       '新人类文明',
                       textAlign: TextAlign.left,

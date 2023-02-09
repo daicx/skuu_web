@@ -5,7 +5,7 @@ import 'package:skuu_web/pages/friends/chat_pagev2.dart'
 
 import '../cache/deferred_widget.dart';
 import '../pages/friends/friend_detail.dart' deferred as friend_detail;
-import '../component/play_video_page.dart' deferred as play_video_page;
+import '../pages/watchvideo/play_video_page.dart' deferred as play_video_page;
 import '../component/watch_article.dart' deferred as watch_article;
 import '../pages/friends/user_detail_page.dart' deferred as user_detail_page;
 import '../pages/index/home.dart';
@@ -81,6 +81,6 @@ var userDetailPage = Handler(
   var userId = params['userId']!.first;
   return AppDeferredWidget(
     libraryLoader: user_detail_page.loadLibrary,
-    builder: () => user_detail_page.UserDetailPage(userId),
+    builder: () => user_detail_page.UserDetailPage(int.parse(userId)),
   );
 });

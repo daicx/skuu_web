@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +13,6 @@ import '../../component/azlist/az_listview.dart';
 import '../../component/azlist/index_bar.dart';
 import '../../route/routers.dart';
 import '../../util/utils.dart';
-import 'friend_detail.dart';
 
 void main() => runApp(MyApp());
 
@@ -227,60 +225,9 @@ class _FriendsPage extends State<FriendsPage> {
           indexSel = model.id!;
         });
         if (1.sw < Constant.CHAT_TWO_VIEW_WIDTH)
-          Routes.navigateTo(context, Routes.friendDetail, params: {
-            'title': ['$_selectedName']
+          Routes.navigateTo(context, Routes.userDetail, params: {
+            'userId': [indexSel.toString()]
           });
-      },
-    );
-  }
-
-  Widget getRow(int i) {
-    return GestureDetector(
-      child: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-        //Container下的color属性会与decoration下的border属性冲突，所以要用decoration下的color属性
-        decoration: BoxDecoration(
-          color: indexSel == i ? Colors.black12 : Colors.white,
-          border: Border(
-            left: BorderSide(
-                width: 5,
-                color: indexSel == i
-                    ? Theme.of(context).primaryColor
-                    : Colors.white),
-          ),
-        ),
-        child: Row(
-          children: [
-            Image.asset(
-              'imgs/user_default.png',
-              width: 50,
-              height: 50,
-              fit: BoxFit.fill,
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              flex: 5,
-              child: Text(
-                '新飞飞',
-                textAlign: TextAlign.left,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.black, fontSize: 20),
-              ),
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        setState(() {
-          indexSel = i; //记录选中的下标
-          if (MediaQuery.of(context).size.width < 700)
-            Routes.navigateTo(context, Routes.userDetail, params: {
-              'title': ['众里寻他千百度']
-            });
-        });
       },
     );
   }

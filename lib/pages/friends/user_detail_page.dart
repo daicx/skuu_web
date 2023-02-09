@@ -43,6 +43,7 @@ class _UserDetailPage extends State<UserDetailPage>
     super.dispose();
     _tabController.dispose();
     _scrollviewController.dispose();
+    _pageController.dispose();
   }
 
   @override
@@ -174,12 +175,8 @@ class _UserDetailPage extends State<UserDetailPage>
         },
         body: TabBarView(controller: _tabController, children: [
           MyVideoLongItem(),
-          Center(
-            child: Text("two"),
-          ),
-          Center(
-            child: Text("three"),
-          ),
+          MyVideoLongItem(),
+          MyVideoLongItem(),
           FriendDetail(
             title: '名称：' + widget.userId.toString(),
           ),
