@@ -14,7 +14,7 @@ class ContactInfo extends ISuspensionBean {
   IconData? iconData;
 
   String? img;
-  String? id;
+  int? id;
   String? firstletter;
 
   ContactInfo({
@@ -31,7 +31,7 @@ class ContactInfo extends ISuspensionBean {
   ContactInfo.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         img = json['img'],
-        id = json['id']?.toString(),
+        id = json['id'],
         firstletter = json['firstletter'];
 
   Map<String, dynamic> toJson() => {

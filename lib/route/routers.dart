@@ -9,6 +9,7 @@ class Routes {
   static String root = "/";
   static String chat = "/chat";
   static String friendDetail = "/friend_detail";
+  static String userDetail = "/user_detail";
   static String care = "/cares";
   static String collect = "/collects";
   static String watch = "/watchs";
@@ -31,6 +32,7 @@ class Routes {
     router.define(watch, handler: watchthandle);
     router.define(whatArticle, handler: whatArticlehandle);
     router.define(searchPage, handler: searchPagehandle);
+    router.define(userDetail, handler: userDetailPage);
   }
 
   // 对参数进行encode，解决参数中有特殊字符，影响fluro路由匹配

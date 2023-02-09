@@ -7,6 +7,7 @@ import '../cache/deferred_widget.dart';
 import '../pages/friends/friend_detail.dart' deferred as friend_detail;
 import '../component/play_video_page.dart' deferred as play_video_page;
 import '../component/watch_article.dart' deferred as watch_article;
+import '../pages/friends/user_detail_page.dart' deferred as user_detail_page;
 import '../pages/index/home.dart';
 import '../pages/meleft/mycare_page.dart' deferred as mycare_page;
 import '../pages/meleft/mycollect_page.dart' deferred as mycollect_page;
@@ -73,5 +74,13 @@ var searchPagehandle = Handler(
   return AppDeferredWidget(
     libraryLoader: search_page.loadLibrary,
     builder: () => search_page.SearchPage(),
+  );
+});
+var userDetailPage = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<dynamic>> params) {
+  var userId = params['userId']!.first;
+  return AppDeferredWidget(
+    libraryLoader: user_detail_page.loadLibrary,
+    builder: () => user_detail_page.UserDetailPage(userId),
   );
 });

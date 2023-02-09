@@ -291,6 +291,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ): Center(
         child: TabBarView(
           controller: _controller,
+          physics: _selected == 2
+              ? NeverScrollableScrollPhysics()
+              : AlwaysScrollableScrollPhysics(), //禁止滑动
           children: tabBoby,
         ),
       )

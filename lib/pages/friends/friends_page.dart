@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lpinyin/lpinyin.dart';
 import 'package:skuu_web/constant/constant.dart';
+import 'package:skuu_web/pages/friends/user_detail_page.dart';
 
 import '../../bean/contact.dart';
 import '../../component/azlist/az_common.dart';
@@ -38,7 +39,7 @@ class FriendsPage extends StatefulWidget {
 class _FriendsPage extends State<FriendsPage> {
   late List<String> _datas;
   String content = '测试赛';
-  int indexSel = 0;
+  int indexSel = 1;
   String _selectedName = '';
   bool ignore = false;
   List<ContactInfo> contactList = [];
@@ -60,21 +61,25 @@ class _FriendsPage extends State<FriendsPage> {
       "发发发11",
     ];
     topList.add(ContactInfo(
+        id: 12,
         name: '新的朋友',
         tagIndex: '↑',
         bgColor: Colors.orange,
         iconData: Icons.person_add));
     topList.add(ContactInfo(
+        id: 13,
         name: '群聊',
         tagIndex: '↑',
         bgColor: Colors.green,
         iconData: Icons.people));
     topList.add(ContactInfo(
+        id: 14,
         name: '标签',
         tagIndex: '↑',
         bgColor: Colors.blue,
         iconData: Icons.local_offer));
     topList.add(ContactInfo(
+        id: 15,
         name: '公众号',
         tagIndex: '↑',
         bgColor: Colors.blueAccent,
@@ -127,11 +132,8 @@ class _FriendsPage extends State<FriendsPage> {
           itemCount: contactList.length,
           itemBuilder: (BuildContext context, int index) {
             ContactInfo model = contactList[index];
-            return getWeChatListItem(
-              context,
-              model,
-              defHeaderBgColor: Color(0xFFE5E5E5)
-            );
+            return getWeChatListItem(context, model,
+                defHeaderBgColor: Color(0xFFE5E5E5));
           },
           physics: BouncingScrollPhysics(),
           susItemBuilder: (BuildContext context, int index) {
@@ -170,16 +172,8 @@ class _FriendsPage extends State<FriendsPage> {
       if (1.sw > Constant.CHAT_TWO_VIEW_WIDTH)
         Expanded(
           flex: 5,
-          child: Container(
-            color: Colors.white,
-            alignment: Alignment.center,
-            child: Container(
-              width: 400,
-              height: 400,
-              child: FriendDetail(
-                title: _selectedName,
-              ),
-            ),
+          child: UserDetailPage(
+            indexSel,
           ),
         ),
     ]);
@@ -230,6 +224,7 @@ class _FriendsPage extends State<FriendsPage> {
       onTap: () {
         setState(() {
           _selectedName = model.name;
+          indexSel = model.id!;
         });
         if (1.sw < Constant.CHAT_TWO_VIEW_WIDTH)
           Routes.navigateTo(context, Routes.friendDetail, params: {
@@ -282,7 +277,7 @@ class _FriendsPage extends State<FriendsPage> {
         setState(() {
           indexSel = i; //记录选中的下标
           if (MediaQuery.of(context).size.width < 700)
-            Routes.navigateTo(context, Routes.friendDetail, params: {
+            Routes.navigateTo(context, Routes.userDetail, params: {
               'title': ['众里寻他千百度']
             });
         });
