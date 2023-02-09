@@ -194,7 +194,7 @@ class _UserDetailPage extends State<UserDetailPage>
       },
       itemCount: length,
       itemBuilder: (context, index) {
-        return Image.network(
+        return Image.asset(
           _pageViews[index],
           fit: BoxFit.cover,
         );
