@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skuu_web/cache/deferred_widget.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/pages/friends/user_detail_page.dart';
@@ -9,12 +8,10 @@ import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../component/mybutton.dart';
-import '../video/myvideo_long_item.dart';
-import '../video/myvideo_short_item.dart';
 import '../friends/chat_page_list.dart';
 import '../friends/friends_page.dart';
-import '../me/myteams.dart';
-import '../me/myworks.dart';
+import '../video/myvideo_long_item.dart';
+import '../video/myvideo_short_item.dart';
 import 'home_item_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -137,17 +134,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ? AppBar(
               leading: Builder(
                 builder: (BuildContext context) {
-                  return SizedBox(
-                    width: 10.w,
-                    height: 10.h,
-                    child: GestureDetector(
-                      child: Image.asset(
-                        'imgs/img_default.png',
-                      ),
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
+                  return GestureDetector(
+                    child: Image.asset(
+                      'imgs/hy.gif',
                     ),
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   );
                 },
               ),
@@ -192,17 +185,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           : AppBar(
               leading: Builder(
                 builder: (BuildContext context) {
-                  return SizedBox(
-                    width: 10.w,
-                    height: 10.h,
-                    child: GestureDetector(
-                      child: Image.asset(
-                        'imgs/img_default.png',
-                      ),
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
+                  return GestureDetector(
+                    child: Image.asset(
+                      'imgs/hy.gif',
                     ),
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
                   );
                 },
               ),

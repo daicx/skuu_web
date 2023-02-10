@@ -35,47 +35,19 @@ class _DrawerPage extends State<DrawerPage> {
                     backgroundImage: AssetImage('imgs/user_default.png'),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 5,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        '用户名',
-                        style: TextStyle(color: Colors.white, fontSize: 15.sp),
-                      ),
-                      Image.asset(
-                        'imgs/img_default.png',
-                        width: 10.w,
-                        height: 20.h,
-                      ),
-                    ],
+                  Text(
+                    '新飞飞',
+                    style: TextStyle(color: Colors.white,),
                   ),
                   SizedBox(
-                    height: 3.h,
+                    height: 3,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        '关注 ',
-                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                      ),
-                      Text(
-                        '123',
-                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      Text(
-                        '粉丝 ',
-                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                      ),
-                      Text(
-                        '345',
-                        style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                      ),
-                    ],
-                  ),
+                  Text(
+                    '关注 122  粉丝 999',
+                    style: TextStyle(color: Colors.white, fontSize: 10),
+                  )
                 ],
               )),
           ListTile(
