@@ -58,6 +58,8 @@ class _UserDetailPage extends State<UserDetailPage>
               elevation: 0.5,
               forceElevated: true,
               expandedHeight: 0.5.sh,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
               flexibleSpace: FlexibleSpaceBar(
                   collapseMode: CollapseMode.pin, //视差效果
                   background: Column(
@@ -154,7 +156,10 @@ class _UserDetailPage extends State<UserDetailPage>
                     ],
                   )),
               bottom: TabBar(
+                  indicatorColor: Colors.grey,
                   controller: _tabController,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
                   isScrollable: false,
                   tabs: [
                     Tab(
@@ -173,7 +178,9 @@ class _UserDetailPage extends State<UserDetailPage>
             ),
           ];
         },
-        body: TabBarView(controller: _tabController, children: [
+        body: TabBarView(controller: _tabController,
+            physics: NeverScrollableScrollPhysics(),
+            children: [
           MyVideoLongItem(),
           MyVideoLongItem(),
           MyVideoLongItem(),

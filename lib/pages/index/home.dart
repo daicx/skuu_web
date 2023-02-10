@@ -4,6 +4,7 @@ import 'package:skuu_web/cache/deferred_widget.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/pages/friends/user_detail_page.dart';
+import 'package:skuu_web/pages/me/myku_page.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -99,10 +100,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           }
         case 3:
           {
-            _tabTitle = ['作品', '兔窝'];
+            _tabTitle = ['作品', 'UU库'];
             tabBoby = [
               UserDetailPage(12),
-              MyTeams(),
+              MykuPage(userId: 12),
               // AppDeferredWidget(
               //   libraryLoader: myworks.loadLibrary,
               //   builder: () => myworks.MyWorks(),
@@ -292,7 +293,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ): Center(
         child: TabBarView(
           controller: _controller,
-          physics: _selected == 2 || _selected == 3
+          physics: _selected == 2
               ? NeverScrollableScrollPhysics()
               : AlwaysScrollableScrollPhysics(), //禁止滑动
           children: tabBoby,

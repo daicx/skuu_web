@@ -117,7 +117,9 @@ class _FriendsPage extends State<FriendsPage> {
 
     // add topList.
     contactList.insertAll(0, topList);
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override

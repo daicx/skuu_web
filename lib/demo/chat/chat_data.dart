@@ -6,16 +6,16 @@ String profileImage =
 // We have all the possibilities for users
 ChatUser user = ChatUser(id: '0');
 ChatUser user1 = ChatUser(id: '1');
-ChatUser user2 = ChatUser(id: '2', firstName: 'Niki Lauda');
-ChatUser user3 = ChatUser(id: '3', lastName: 'Clark');
+ChatUser user2 = ChatUser(id: '2', firstName: '马斯克');
+ChatUser user3 = ChatUser(id: '3', lastName: '马化腾');
 ChatUser user4 = ChatUser(id: '4', profileImage: profileImage);
-ChatUser user5 = ChatUser(id: '5', firstName: 'Charles', lastName: 'Leclerc');
+ChatUser user5 = ChatUser(id: '5', firstName: '马云', lastName: '马爸爸');
 ChatUser user6 =
-ChatUser(id: '6', firstName: 'Max', profileImage: profileImage);
+ChatUser(id: '6', firstName: '小马', profileImage: profileImage);
 ChatUser user7 =
-ChatUser(id: '7', lastName: 'Toto', profileImage: profileImage);
+ChatUser(id: '7', lastName: '马克龙', profileImage: profileImage);
 ChatUser user8 = ChatUser(
-    id: '8', firstName: 'Toto', lastName: 'Clark', profileImage: profileImage);
+    id: '8', firstName: '如豆', lastName: '小龙', profileImage: profileImage);
 
 List<ChatMessage> allUsersSample = <ChatMessage>[
   ChatMessage(
@@ -62,12 +62,12 @@ List<ChatMessage> allUsersSample = <ChatMessage>[
 
 List<ChatMessage> basicSample = <ChatMessage>[
   ChatMessage(
-    text: 'google.com hello you @Marc is it &you okay?',
+    text: 'google.com ，你好 @代 可以了吗 &你 ?',
     user: user2,
     createdAt: DateTime(2021, 01, 31, 16, 45),
     mentions: [
-      Mention(title: '@Marc'),
-      Mention(title: '&you'),
+      Mention(title: '@代'),
+      Mention(title: '&你'),
     ],
   ),
   ChatMessage(
@@ -76,27 +76,27 @@ List<ChatMessage> basicSample = <ChatMessage>[
     createdAt: DateTime(2021, 01, 30, 16, 45),
   ),
   ChatMessage(
-    text: "Oh what's up guys?",
+    text: "你好，伙计，今天还好吗？",
     user: user2,
     createdAt: DateTime(2021, 01, 30, 16, 45),
   ),
   ChatMessage(
-    text: 'How you doin?',
+    text: '你在做什么?',
     user: user8,
     createdAt: DateTime(2021, 01, 30, 16, 34),
   ),
   ChatMessage(
-    text: 'Hey!',
+    text: '你好',
     user: user,
     createdAt: DateTime(2021, 01, 30, 15, 50),
   ),
   ChatMessage(
-    text: 'Hey!',
+    text: '你好!',
     user: user,
     createdAt: DateTime(2021, 01, 28, 15, 50),
   ),
   ChatMessage(
-    text: 'Hey!',
+    text: '你好!',
     user: user,
     createdAt: DateTime(2021, 01, 28, 15, 50),
   ),
