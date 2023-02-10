@@ -1,17 +1,5 @@
 # skuu_web
 
 skuuweb
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# skuu_web
+参考应用:微博，贴吧，头条，抖音，微信，youtube，taptap。
+是的，在这里吗你都能看到他们的影子。
