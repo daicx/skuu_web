@@ -13,7 +13,7 @@ class Routes {
   static String care = "/cares";
   static String collect = "/collects";
   static String watch = "/watchs";
-  static String whatArticle = "/look_article";
+  static String whatArticle = "/look_art";
   static String searchPage = "/search_page";
 
   static void configureRoutes(FluroRouter fluroRouter) {

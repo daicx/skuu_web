@@ -2,16 +2,18 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:skuu_web/pages/friends/chat_pagev2.dart'
     deferred as chat_pagev2;
+import 'package:skuu_web/pages/lookart/look_art_page.dart' deferred as look_art_page;
 
 import '../cache/deferred_widget.dart';
-import '../pages/friends/friend_detail.dart' deferred as friend_detail;
-import '../pages/watchvideo/play_video_page.dart' deferred as play_video_page;
 import '../component/watch_article.dart' deferred as watch_article;
+import '../pages/friends/friend_detail.dart' deferred as friend_detail;
 import '../pages/friends/user_detail_page.dart' deferred as user_detail_page;
 import '../pages/index/home.dart';
+import '../pages/lookart/look_art_page.dart';
 import '../pages/meleft/mycare_page.dart' deferred as mycare_page;
 import '../pages/meleft/mycollect_page.dart' deferred as mycollect_page;
 import '../pages/search/search_page.dart' deferred as search_page;
+import '../pages/watchvideo/play_video_page.dart' deferred as play_video_page;
 
 var rootHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
@@ -63,9 +65,10 @@ var watchthandle = Handler(
 var whatArticlehandle = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   // return WhatArticle();
+
   return AppDeferredWidget(
-    libraryLoader: watch_article.loadLibrary,
-    builder: () => watch_article.WhatArticle(),
+    libraryLoader: look_art_page.loadLibrary,
+    builder: () => look_art_page.LookArticalPage(),
   );
 });
 var searchPagehandle = Handler(
