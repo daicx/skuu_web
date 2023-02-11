@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
+import 'package:skuu_web/constant/constant.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/pages/friends/user_detail_page.dart';
 import 'package:skuu_web/pages/me/myku_page.dart';
@@ -165,7 +166,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         icon: const Icon(Icons.search),
                         label: Text("英雄联盟手游"))),
               ),
-              bottom: getTabBar(_tabTitle, tabBoby).keys.first,
+              bottom: Constant.LOOK_MODE
+                  ? null
+                  : getTabBar(_tabTitle, tabBoby).keys.first,
               actions: [
                 Container(
                   width: 100,
@@ -209,56 +212,67 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
       drawer: const DrawerPage(),
       body: getTabBar(_tabTitle, tabBoby).values.first,
-      floatingActionButton: _selected == 2
+      floatingActionButton: GestureDetector(
+              onDoubleTap: () {
+                setState(() {
+                  Constant.LOOK_MODE = !Constant.LOOK_MODE;
+                });
+              },
+              onTap: () {},
+              child: FloatingActionButton(
+                onPressed: null,
+                tooltip: '发布/双击切换浏览模式',
+                child: const Icon(Icons.add),
+              ),
+            ),
+      floatingActionButtonLocation: Constant.LOOK_MODE
+          ? FloatingActionButtonLocation.endFloat
+          : FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: Constant.LOOK_MODE
           ? null
-          : FloatingActionButton(
-              onPressed: null,
-              tooltip: '发布',
-              child: const Icon(Icons.add),
+          : BottomAppBar(
+              color: Colors.white,
+              shape: const CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
+              child: Row(
+                children: [
+                  MyFlatButton(
+                    text: '首页',
+                    img: _selected == 0
+                        ? imgPath + 'index1_select.png'
+                        : imgPath + 'index1.png',
+                    textColor: _selected == 0 ? Colors.green : Colors.black54,
+                    onPress: () => {_changeIndex(0)},
+                  ),
+                  MyFlatButton(
+                    text: '影视',
+                    img: _selected == 1
+                        ? imgPath + 'video_select.png'
+                        : imgPath + 'video.png',
+                    textColor: _selected == 1 ? Colors.green : Colors.black54,
+                    onPress: () => {_changeIndex(1)},
+                  ),
+                  SizedBox(
+                  ),
+                  MyFlatButton(
+                    text: '消息',
+                    img: _selected == 2
+                        ? imgPath + 'msg_select.png'
+                        : imgPath + 'msg.png',
+                    textColor: _selected == 2 ? Colors.green : Colors.black54,
+                    onPress: () => {_changeIndex(2)},
+                  ),
+                  MyFlatButton(
+                    text: '我的',
+                    img: _selected == 3
+                        ? imgPath + 'me_select.png'
+                        : imgPath + 'me.png',
+                    textColor: _selected == 3 ? Colors.green : Colors.black54,
+                    onPress: () => {_changeIndex(3)},
+                  ),
+                ],
+                mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
+              ),
             ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        shape: const CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
-        child: Row(
-          children: [
-            MyFlatButton(
-              text: '首页',
-              img: _selected == 0
-                  ? imgPath + 'index1_select.png'
-                  : imgPath + 'index1.png',
-              textColor: _selected == 0 ? Colors.green : Colors.black54,
-              onPress: () => {_changeIndex(0)},
-            ),
-            MyFlatButton(
-              text: '影视',
-              img: _selected == 1
-                  ? imgPath + 'video_select.png'
-                  : imgPath + 'video.png',
-              textColor: _selected == 1 ? Colors.green : Colors.black54,
-              onPress: () => {_changeIndex(1)},
-            ),
-            SizedBox(), //中间位置空出
-            MyFlatButton(
-              text: '消息',
-              img: _selected == 2
-                  ? imgPath + 'msg_select.png'
-                  : imgPath + 'msg.png',
-              textColor: _selected == 2 ? Colors.green : Colors.black54,
-              onPress: () => {_changeIndex(2)},
-            ),
-            MyFlatButton(
-              text: '我的',
-              img: _selected == 3
-                  ? imgPath + 'me_select.png'
-                  : imgPath + 'me.png',
-              textColor: _selected == 3 ? Colors.green : Colors.black54,
-              onPress: () => {_changeIndex(3)},
-            ),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
-        ),
-      ),
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );

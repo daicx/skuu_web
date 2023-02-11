@@ -47,36 +47,42 @@ class _HomeItemPage extends State<HomeItemPage> {
     return Scaffold(
       backgroundColor: Colors.black12,
       body: Padding(
-        padding: EdgeInsets.all(5),
-        // ignore: missing_required_param
-        child: MasonryGridView.count(
-          itemCount: _items.length,
-          crossAxisCount: colCount,
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-          itemBuilder: (BuildContext context, int index) {
-            if (index % 2 == 0) {
-              return Material(
-                child: Container(
-                  height: getImgItemHeight(index > 6 ? 6 : index),
-                  child: MyImgItem(
-                    id: index > 6 ? 6 : index,
-                  ),
-                ),
-                borderRadius: BorderRadius.circular(10.0),
-              );
-            } else {
-              return Material(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Container(
-                  height: getVideoItemHeight(),
-                  child: MyIndexVideoItem(),
-                ),
-              );
-            }
-          },
-        ),
-      ),
+          padding: EdgeInsets.all(5),
+          // ignore: missing_required_param
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (ScrollNotification notification){
+             String name = notification.metrics.axisDirection.name;
+             int index = notification.metrics.axisDirection.index;
+              return false;
+            },
+            child: MasonryGridView.count(
+              itemCount: _items.length,
+              crossAxisCount: colCount,
+              mainAxisSpacing: 4.0,
+              crossAxisSpacing: 4.0,
+              itemBuilder: (BuildContext context, int index) {
+                if (index % 2 == 0) {
+                  return Material(
+                    child: Container(
+                      height: getImgItemHeight(index > 6 ? 6 : index),
+                      child: MyImgItem(
+                        id: index > 6 ? 6 : index,
+                      ),
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                  );
+                } else {
+                  return Material(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Container(
+                      height: getVideoItemHeight(),
+                      child: MyIndexVideoItem(),
+                    ),
+                  );
+                }
+              },
+            ),
+          )),
     );
   }
 
@@ -118,7 +124,7 @@ class _HomeItemPage extends State<HomeItemPage> {
     if (colCount > 1) {
       widthItem = 0.5.sw;
     }
-    return widthItem / (15/9) + 150;
+    return widthItem / (15 / 9) + 150;
   }
 
   int getImgItemCount() {

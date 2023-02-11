@@ -75,7 +75,7 @@ class _SearchItemV2 extends State<SearchItemV2>
       headerSliverBuilder: (context, boxIsScrolled) {
         return [
           SliverAppBar(
-            expandedHeight: 900.h,
+            expandedHeight: 500.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Column(
                 children: [
@@ -116,20 +116,20 @@ class _SearchItemV2 extends State<SearchItemV2>
                             ))
                         .toList(),
                   ),
-                  ListTile(
-                    title: Text(
-                      "搜索发现",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    trailing: TextButton.icon(
-                      icon: Icon(Icons.refresh),
-                      onPressed: () {},
-                      label: Text(
-                        "换一换",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ),
-                  ),
+                  // ListTile(
+                  //   title: Text(
+                  //     "搜索发现",
+                  //     style: TextStyle(color: Colors.grey),
+                  //   ),
+                  //   trailing: TextButton.icon(
+                  //     icon: Icon(Icons.refresh),
+                  //     onPressed: () {},
+                  //     label: Text(
+                  //       "换一换",
+                  //       style: TextStyle(color: Colors.grey),
+                  //     ),
+                  //   ),
+                  // ),
                   Wrap(
                     spacing: 12.0, // 主轴(水平)方向间距
                     runSpacing: 1, // 纵轴（垂直）方向间距
