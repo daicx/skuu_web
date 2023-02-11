@@ -37,7 +37,7 @@ class _MyVideoImgItem extends State<MyVideoImgItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(13),
+      padding: EdgeInsets.all(5),
       child: ElevatedButton(
         onPressed: () {
           Routes.navigateTo(context, Routes.watch);
