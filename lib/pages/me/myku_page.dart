@@ -25,28 +25,14 @@ class _MykuPage extends State<MykuPage> {
             expandedHeight: 0.3.sh,
             pinned: true,
             actions: [
-              Padding(padding: EdgeInsets.only(right: 10)
-              ,child:  Row(
-                  children: [
-                    Container(
-                      width: 30,
-                      height: 30,
-                      child: Image.asset('imgs/buy.png'),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: AutoSizeText(
-                        '充值',
-                        style: const TextStyle(fontSize: 20,color: Colors.orange),
-                        minFontSize: 10,
-                        maxLines: 1,
-                      ),
-                    ),
-                  ],
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: IconButton(
+                  iconSize: 50,
+                  onPressed: () {},
+                  icon: Image.asset('imgs/recharge.gif'),
                 ),
               )
-
-
             ],
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
@@ -61,8 +47,8 @@ class _MykuPage extends State<MykuPage> {
                   child: Row(
                     children: <Widget>[
                       Container(
-                        height: 200,
-                        width: 200,
+                        height: 150,
+                        width: 150,
                         child: Image.asset(
                           'imgs/vip.png',
                         ),

@@ -30,6 +30,9 @@ class _LookArticalPage extends State<LookArticalPage>
     '正序',
     '倒序',
   ];
+  bool ifInputing = false;
+
+  final searchController = TextEditingController();
 
   @override
   void initState() {
@@ -67,6 +70,59 @@ class _LookArticalPage extends State<LookArticalPage>
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: ifInputing == true
+          ? SizedBox(
+              width: hiddenRight ? 1.sw - 400 : 1.sw-30,
+              height: 100,
+              child: TextField(
+                maxLines: 100,
+                controller: searchController,
+                decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: '评论',
+                  border: InputBorder.none,
+                  suffix: Column(
+                    children: [
+                      TextButton(
+                          onPressed: () => {
+                                setState(() {
+                                  ifInputing = false;
+                                })
+                              },
+                          child: Text('发表')),
+                      TextButton(
+                          onPressed: () => {
+                                setState(() {
+                                  ifInputing = false;
+                                })
+                              },
+                          child: Text('取消')),
+                    ],
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFDCDFE6)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF409EFF)),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+                onChanged: (a) {
+                  setState(() {});
+                },
+              ),
+            )
+          : FloatingActionButton(
+              onPressed: () => {
+                setState(() {
+                  ifInputing = true;
+                })
+              },
+              child: Text('评论'),
+            ),
     );
   }
 
@@ -280,9 +336,7 @@ class _LookArticalPage extends State<LookArticalPage>
         ),
       ),
       onTap: () {
-        setState(() {
-
-        });
+        setState(() {});
       },
     );
   }

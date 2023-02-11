@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'search_def_item.dart';
+import 'package:skuu_web/pages/search/search_item_v2.dart';
 
 //查询页面
 class SearchPage extends StatefulWidget {
@@ -106,23 +105,11 @@ class _SearchPage extends State<SearchPage> {
                 '搜索',
                 // style: TextStyle(color: Colors.white),
               ),
-              // style: TextButton.styleFrom(
-              //     // shape: RoundedRectangleBorder(
-              //     //     borderRadius: BorderRadius.circular(10)),
-              //     backgroundColor: Colors.green)
             ),
           ],
         ),
-        body: SearchDefItem());
+        body: SearchItemV2());
   }
-
-  // SingleChildScrollView listDefView(){
-  //   return SingleChildScrollView(
-  //       child:Column(
-  //           children:
-  //       )
-  //   );
-  // }
 
 // Text组件需要用SliverToBoxAdapter包裹，才能作为CustomScrollView的子组件
   Widget renderTitle(String title) {
