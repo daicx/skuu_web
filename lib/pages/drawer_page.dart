@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../route/routers.dart';
 
@@ -39,7 +38,9 @@ class _DrawerPage extends State<DrawerPage> {
                   ),
                   Text(
                     '新飞飞',
-                    style: TextStyle(color: Colors.white,),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   SizedBox(
                     height: 3,
@@ -51,20 +52,13 @@ class _DrawerPage extends State<DrawerPage> {
                 ],
               )),
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'care.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('关注'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'care.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
+            title: Text('关注'),
             onTap: () {
               Navigator.pop(context);
               Routes.router.navigateTo(context, Routes.care);

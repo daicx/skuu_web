@@ -142,7 +142,7 @@ class _MyIndexVideoItem extends State<MyIndexVideoItem> {
                     color: Colors.red,
                   )
                       : Icon(Icons.favorite_border),
-                  label: Text(_zan ? '取消' : '点赞'),
+                  label: Text(_zan ? '取消' : '收藏'),
                 ),
                 TextButton.icon(
                   style: ButtonStyle(

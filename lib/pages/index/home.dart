@@ -3,15 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/constant/constant.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
-import 'package:skuu_web/pages/friends/user_detail_page.dart';
 import 'package:skuu_web/pages/me/myku_page.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../component/button_img.dart';
-import '../../component/mybutton.dart';
 import '../friends/chat_page_list.dart';
 import '../friends/friends_page.dart';
+import '../me/me_detail_page.dart';
 import '../video/myvideo_long_item.dart';
 import '../video/myvideo_short_item.dart';
 import 'home_item_page.dart';
@@ -101,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           {
             _tabTitle = ['作品', 'UU库'];
             tabBoby = [
-              UserDetailPage(12),
+              MeDetailPage(12),
               MykuPage(userId: 12),
               // AppDeferredWidget(
               //   libraryLoader: myworks.loadLibrary,

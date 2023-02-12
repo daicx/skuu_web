@@ -4,18 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skuu_web/pages/friends/friend_detail.dart';
 import 'package:skuu_web/pages/video/myvideo_long_item.dart';
 
-class UserDetailPage extends StatefulWidget {
+class MeDetailPage extends StatefulWidget {
   final int userId;
 
-  UserDetailPage(this.userId, {super.key});
+  MeDetailPage(this.userId, {super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return _UserDetailPage();
+    return _MeDetailPage();
   }
 }
 
-class _UserDetailPage extends State<UserDetailPage>
+class _MeDetailPage extends State<MeDetailPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late ScrollController _scrollviewController;
@@ -161,6 +161,7 @@ class _UserDetailPage extends State<UserDetailPage>
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.grey,
                   isScrollable: false,
+                  indicatorSize: TabBarIndicatorSize.label,
                   tabs: [
                     Tab(
                       text: "视频",

@@ -148,10 +148,6 @@ class _MyImgItem extends State<MyImgItem> {
                   ),
                 ),
               ),
-            // Expanded(
-            //   // flex: 1,
-            //   child:
-            // )
             Row(
               children: <Widget>[
                 TextButton.icon(
@@ -168,7 +164,7 @@ class _MyImgItem extends State<MyImgItem> {
                           color: Colors.red,
                         )
                       : Icon(Icons.favorite_border),
-                  label: Text(_zan ? '取消' : '点赞'),
+                  label: Text(_zan ? '取消' : '收藏'),
                 ),
                 TextButton.icon(
                   style: ButtonStyle(
