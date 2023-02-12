@@ -8,6 +8,7 @@ import 'package:skuu_web/pages/me/myku_page.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../component/button_img.dart';
 import '../../component/mybutton.dart';
 import '../friends/chat_page_list.dart';
 import '../friends/friends_page.dart';
@@ -213,18 +214,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       drawer: const DrawerPage(),
       body: getTabBar(_tabTitle, tabBoby).values.first,
       floatingActionButton: GestureDetector(
-              onDoubleTap: () {
-                setState(() {
-                  Constant.LOOK_MODE = !Constant.LOOK_MODE;
-                });
-              },
-              onTap: () {},
-              child: FloatingActionButton(
-                onPressed: null,
-                tooltip: '发布/双击切换浏览模式',
-                child: const Icon(Icons.add),
-              ),
-            ),
+        onDoubleTap: () {
+          setState(() {
+            Constant.LOOK_MODE = !Constant.LOOK_MODE;
+          });
+        },
+        onTap: () {},
+        child: FloatingActionButton(
+          onPressed: null,
+          tooltip: '发布/双击切换浏览模式',
+          child: const Icon(Icons.add),
+        ),
+      ),
       floatingActionButtonLocation: Constant.LOOK_MODE
           ? FloatingActionButtonLocation.endFloat
           : FloatingActionButtonLocation.centerDocked,
@@ -235,39 +236,59 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               shape: const CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
               child: Row(
                 children: [
-                  MyFlatButton(
-                    text: '首页',
-                    img: _selected == 0
-                        ? imgPath + 'index1_select.png'
-                        : imgPath + 'index1.png',
-                    textColor: _selected == 0 ? Colors.green : Colors.black54,
-                    onPress: () => {_changeIndex(0)},
+                  Padding(
+                    padding: EdgeInsets.only(top: 4),
+                    child: ButtonImg(
+                      text: '首页',
+                      textSize: 12,
+                      img: _selected == 0
+                          ? imgPath + 'index-sel.svg'
+                          : imgPath + 'index.svg',
+                      textColor: _selected == 0
+                          ? Constant.ICON_COLOR
+                          : Constant.ICON_COLOR_DEF,
+                      onPress: () => {_changeIndex(0)},
+                    ),
                   ),
-                  MyFlatButton(
+                  ButtonImg(
                     text: '影视',
+                    textSize: 12,
                     img: _selected == 1
-                        ? imgPath + 'video_select.png'
-                        : imgPath + 'video.png',
-                    textColor: _selected == 1 ? Colors.green : Colors.black54,
+                        ? imgPath + 'video-sel.svg'
+                        : imgPath + 'video.svg',
+                    textColor: _selected == 1
+                        ? Constant.ICON_COLOR
+                        : Constant.ICON_COLOR_DEF,
                     onPress: () => {_changeIndex(1)},
                   ),
-                  SizedBox(
+                  SizedBox(),
+                  Padding(
+                    padding: EdgeInsets.only(top: 4),
+                    child: ButtonImg(
+                      text: '消息',
+                      textSize: 12,
+                      img: _selected == 2
+                          ? imgPath + 'msg-sel.svg'
+                          : imgPath + 'msg.svg',
+                      textColor: _selected == 2
+                          ? Constant.ICON_COLOR
+                          : Constant.ICON_COLOR_DEF,
+                      onPress: () => {_changeIndex(2)},
+                    ),
                   ),
-                  MyFlatButton(
-                    text: '消息',
-                    img: _selected == 2
-                        ? imgPath + 'msg_select.png'
-                        : imgPath + 'msg.png',
-                    textColor: _selected == 2 ? Colors.green : Colors.black54,
-                    onPress: () => {_changeIndex(2)},
-                  ),
-                  MyFlatButton(
-                    text: '我的',
-                    img: _selected == 3
-                        ? imgPath + 'me_select.png'
-                        : imgPath + 'me.png',
-                    textColor: _selected == 3 ? Colors.green : Colors.black54,
-                    onPress: () => {_changeIndex(3)},
+                  Padding(
+                    padding: EdgeInsets.only(top: 4),
+                    child: ButtonImg(
+                      text: '我的',
+                      textSize: 12,
+                      img: _selected == 3
+                          ? imgPath + 'me-sel.svg'
+                          : imgPath + 'me.svg',
+                      textColor: _selected == 3
+                          ? Constant.ICON_COLOR
+                          : Constant.ICON_COLOR_DEF,
+                      onPress: () => {_changeIndex(3)},
+                    ),
                   ),
                 ],
                 mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间

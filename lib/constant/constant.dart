@@ -19,6 +19,8 @@ class Constant {
   static const double CHAT_TWO_VIEW_WIDTH = 700;
   static const double HEAD_IMG_SEZE = 60;
   static const Color SELECT_COLOR = Color(0xFFE5E5E5);
+  static const Color ICON_COLOR = Color(0xFF1AFA29);
+  static const Color ICON_COLOR_DEF = Color(0xFF8A8A8A);
   static bool LOOK_MODE = false;
 
   static String URL_MP4_DEMO_0 = 'http://vt1.doubanio.com/201902111139/0c06a85c600b915d8c9cbdbbaf06ba9f/view/movie/M/302420330.mp4';

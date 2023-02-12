@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 /// 自定义按钮
-class MyFlatButton extends StatelessWidget {
+class ButtonImg extends StatelessWidget {
   final VoidCallback onPress;
   final String img;
   final String text;
@@ -10,7 +11,7 @@ class MyFlatButton extends StatelessWidget {
   final Color color;
   final Color textColor;
 
-  const MyFlatButton(
+  const ButtonImg(
       {Key? key,
       required this.onPress,
       required this.img,
@@ -27,7 +28,7 @@ class MyFlatButton extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Image.asset(
+          SvgPicture.asset(
             img,
             width: 30,
             height: 30,
