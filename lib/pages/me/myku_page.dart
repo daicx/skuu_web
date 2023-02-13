@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MykuPage extends StatefulWidget {
   final int userId;
@@ -46,12 +47,10 @@ class _MykuPage extends State<MykuPage> {
                   padding: const EdgeInsets.all(10),
                   child: Row(
                     children: <Widget>[
-                      Container(
+                      SvgPicture.asset(
+                        'imgs/vip.svg',
                         height: 150,
                         width: 150,
-                        child: Image.asset(
-                          'imgs/vip.png',
-                        ),
                       ),
                       Container(
                         width: 10,

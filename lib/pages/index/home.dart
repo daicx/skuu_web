@@ -98,10 +98,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           }
         case 3:
           {
-            _tabTitle = ['作品', 'UU库'];
+            _tabTitle = ['UU库', '作品'];
             tabBoby = [
-              MeDetailPage(12),
               MykuPage(userId: 12),
+              MeDetailPage(12),
               // AppDeferredWidget(
               //   libraryLoader: myworks.loadLibrary,
               //   builder: () => myworks.MyWorks(),

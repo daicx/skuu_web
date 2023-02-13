@@ -1,26 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LevelIcon extends StatelessWidget {
-  final int lv;
+  late final int lv;
 
   LevelIcon({this.lv = 1});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: 20,
+    // lv++;
+    if (lv > 6) {
+      lv = 6;
+    }
+    if (lv < 1) {
+      return Container();
+    }
+    return SvgPicture.asset(
+      "imgs/vip$lv.svg",
       height: 20,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage(getImg()),
-      )),
-      child: Text(
-        lv.toString(),
-        style: TextStyle(fontSize: 5, color: Colors.white),
-      ),
     );
+    // return Container(
+    //   alignment: Alignment.center,
+    //   width: 20,
+    //   height: 20,
+    //   decoration: BoxDecoration(
+    //       image: DecorationImage(
+    //     image: AssetImage(getImg()),
+    //   )),
+    //   child: Text(
+    //     lv.toString(),
+    //     style: TextStyle(fontSize: 5, color: Colors.white),
+    //   ),
+    // );
   }
 
   String getImg() {

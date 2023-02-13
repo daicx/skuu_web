@@ -65,177 +65,51 @@ class _DrawerPage extends State<DrawerPage> {
             },
           ),
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'collect.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text('收藏'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'collect.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
+            title: Text('收藏'),
             onTap: () {
               Navigator.pop(context);
               Routes.navigateTo(context, Routes.collect);
             },
           ),
+
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'order.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('订单'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'zuji.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
+            title: Text('足迹'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'history.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('浏览历史'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'caogao.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          Container(
-            height: 1,
-            color: Colors.black12,
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'fuli.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('福利中心'),
-              ],
-            ),
+            title: Text('草稿箱'),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'shop.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('店铺'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'creator.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'fankui.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('意见反馈'),
-              ],
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'set.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('设置'),
-              ],
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'night.png',
-                  width: 30,
-                  height: 30,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('夜间模式'),
-              ],
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'version.png',
-                  width: 30,
-                  height: 30,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('当前版本'),
-              ],
-            ),
+            title: Text('创作中心'),
             onTap: () {
               Navigator.pop(context);
             },
@@ -245,20 +119,101 @@ class _DrawerPage extends State<DrawerPage> {
             color: Colors.black12,
           ),
           ListTile(
-            title: Row(
-              children: [
-                Image.asset(
-                  imgPath + 'exit.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.fill,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('退出登录'),
-              ],
+            leading: SvgPicture.asset(
+              imgPath + 'fuli.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
             ),
+            title: Text('福利中心'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'order.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('订单'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'gouwuche.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('购物车'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          Container(
+            height: 1,
+            color: Colors.black12,
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'fankui.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('意见反馈'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'set.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('设置'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'night.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('夜间模式'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'version.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('版本'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: SvgPicture.asset(
+              imgPath + 'exist.svg',
+              width: 35,
+              height: 35,
+              fit: BoxFit.fill,
+            ),
+            title: Text('退出登陆'),
             onTap: () {
               Navigator.pop(context);
             },

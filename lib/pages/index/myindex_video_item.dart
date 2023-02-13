@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -66,9 +68,7 @@ class _MyIndexVideoItem extends State<MyIndexVideoItem> {
                             maxLines: 1,
                           ),
                         ),
-                        LevelIcon(
-                          lv: widget.id,
-                        ),
+                        LevelIcon(lv: Random().nextInt(7)),
                       ],
                     ),
 
@@ -142,7 +142,7 @@ class _MyIndexVideoItem extends State<MyIndexVideoItem> {
                     color: Colors.red,
                   )
                       : Icon(Icons.favorite_border),
-                  label: Text(_zan ? '取消' : '收藏'),
+                  label: Text(_zan ? '取消' : '喜欢'),
                 ),
                 TextButton.icon(
                   style: ButtonStyle(

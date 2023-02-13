@@ -76,7 +76,7 @@ class _MyImgItem extends State<MyImgItem> {
                             maxLines: 1,
                           ),
                         ),
-                        LevelIcon(lv: Random().nextInt(11)),
+                        LevelIcon(lv: Random().nextInt(7)),
                       ],
                     ),
                     Container(
@@ -164,7 +164,7 @@ class _MyImgItem extends State<MyImgItem> {
                           color: Colors.red,
                         )
                       : Icon(Icons.favorite_border),
-                  label: Text(_zan ? '取消' : '收藏'),
+                  label: Text(_zan ? '取消' : '喜欢'),
                 ),
                 TextButton.icon(
                   style: ButtonStyle(
