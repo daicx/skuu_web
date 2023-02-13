@@ -15,8 +15,30 @@ class MykuPage extends StatefulWidget {
 }
 
 class _MykuPage extends State<MykuPage> {
+  List<String> _items = <String>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _items = [
+      '我的工具',
+      '我的工具',
+      '我的工具',
+      '我的工具',
+      '我的工具',
+      '我的工具',
+      '我的工具',
+      '我的工具',
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    //下划线widget预定义以供复用。
+    Widget divider1 = Divider(
+      color: Colors.blue,
+    );
+    Widget divider2 = Divider(color: Colors.green);
     return NestedScrollView(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return <Widget>[
@@ -102,19 +124,22 @@ class _MykuPage extends State<MykuPage> {
           )
         ];
       },
-      body: ListView.builder(
+      body: ListView.separated(
         itemBuilder: (BuildContext context, int index) {
           return Container(
             height: 80,
-            color: Colors.primaries[index % Colors.primaries.length],
+            // color: Colors.primaries[index % Colors.primaries.length],
             alignment: Alignment.center,
             child: Text(
-              '$index',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              _items[index] + '$index',
+              style: TextStyle(color: Colors.black, fontSize: 20),
             ),
           );
         },
-        itemCount: 20,
+        itemCount: _items.length,
+        separatorBuilder: (BuildContext context, int index) {
+          return index % 2 == 0 ? divider1 : divider2;
+        },
       ),
     );
   }
