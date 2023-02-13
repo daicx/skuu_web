@@ -41,7 +41,7 @@ class _MeDetailPage extends State<MeDetailPage>
   @override
   void dispose() {
     super.dispose();
-    _tabController.dispose();
+    // _tabController.dispose();
     _scrollviewController.dispose();
     _pageController.dispose();
   }
@@ -180,7 +180,6 @@ class _MeDetailPage extends State<MeDetailPage>
           ];
         },
         body: TabBarView(controller: _tabController,
-            physics: NeverScrollableScrollPhysics(),
             children: [
           MyVideoLongItem(),
           MyVideoLongItem(),

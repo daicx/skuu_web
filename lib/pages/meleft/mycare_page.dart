@@ -110,8 +110,10 @@ class _MyCarePage extends State<MyCarePage> {
                             flex: 1,
                             child: Container(
                               alignment: Alignment.centerLeft,
+                              width: 50,
+                              height: 20,
                               child: LevelIcon(
-                                lv: 13,
+                                lv: 3,
                               ),
                             ),
                           ),

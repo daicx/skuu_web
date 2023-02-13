@@ -31,7 +31,6 @@ class _NestedScrollViewDemo1 extends State<NestedScrollViewDemo1>
   @override
   void initState() {
     super.initState();
-    super.initState();
     _tabController = TabController(length: 4, vsync: this);
     _scrollviewController = ScrollController(initialScrollOffset: 0.0);
   }
@@ -92,7 +91,8 @@ class _NestedScrollViewDemo1 extends State<NestedScrollViewDemo1>
             ),
           ];
         },
-        body: TabBarView(controller: _tabController, children: [
+        body: TabBarView(controller: _tabController,
+            children: [
           Center(
             child: Text("one"),
           ),

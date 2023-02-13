@@ -4,6 +4,8 @@ import 'package:skuu_web/component/my_grid_view.dart';
 import 'package:skuu_web/constant/constant.dart';
 import 'package:skuu_web/pages/drawer_page.dart';
 import 'package:skuu_web/pages/me/myku_page.dart';
+import 'package:skuu_web/pages/me/myteams.dart';
+import 'package:skuu_web/pages/me/myworks.dart';
 import 'package:skuu_web/route/routers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,15 +45,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       switch (_selected) {
         case 0:
           {
-            _tabTitle = ['关注', '推荐', '热榜', '视频', '图片', '游戏', '小说', '问答'];
+            _tabTitle = ['关注', '推荐', '热榜', '购物',  '工具','本地', '娱乐', '游戏',];
             tabBoby = [
               HomeItemPage(),
               HomeItemPage(),
-              MyGridView(),
-              MyGridView(),
-              MyGridView(),
-              MyGridView(),
-              MyGridView(),
+              MyWorks(),
+              MyTeams(),
+              HomeItemPage(),
+              HomeItemPage(),
+              HomeItemPage(),
               MyGridView()
             ];
             break;
