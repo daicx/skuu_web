@@ -53,6 +53,10 @@ class _HomeItemPage extends State<HomeItemPage> {
             onNotification: (ScrollNotification notification){
              String name = notification.metrics.axisDirection.name;
              int index = notification.metrics.axisDirection.index;
+            int index1 = notification.metrics.axisDirection.index;
+             String name1 = notification.metrics.axisDirection.name;
+             print('index'+index1.toString());
+             print("name"+name1);
               return false;
             },
             child: MasonryGridView.count(

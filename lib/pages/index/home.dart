@@ -45,7 +45,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       switch (_selected) {
         case 0:
           {
-            _tabTitle = ['关注', '推荐', '热榜', '购物',  '工具','本地', '娱乐', '游戏',];
+            _tabTitle = [
+              '关注',
+              '推荐',
+              '热榜',
+              '购物',
+              '工具',
+              '本地',
+              '娱乐',
+              '游戏',
+            ];
             tabBoby = [
               HomeItemPage(),
               HomeItemPage(),
@@ -133,85 +142,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       //导航栏
-      appBar: _selected == 0
-          ? AppBar(
-              leading: Builder(
-                builder: (BuildContext context) {
-                  return GestureDetector(
-                    child: Image.asset(
-                      'imgs/hy.gif',
-                    ),
-                    onTap: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                  );
-                },
-              ),
-              automaticallyImplyLeading: false,
-              // centerTitle: false,
-              title: InkWell(
-                onTap: () {
-                  Routes.navigateTo(context, Routes.searchPage);
-                },
-                child: Container(
-                    width: 0.8.sw,
-                    height: 40,
-                    margin:
-                        EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.w),
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                    ),
-                    child: TextButton.icon(
-                        onPressed: null,
-                        icon: const Icon(Icons.search),
-                        label: Text("英雄联盟手游"))),
-              ),
-              bottom: Constant.LOOK_MODE
-                  ? null
-                  : getTabBar(_tabTitle, tabBoby).keys.first,
-              actions: [
-                Container(
-                  width: 100,
-                  child: TextButton(
-                    child: Text(
-                      '京ICP备2022023998号',
-                      style: TextStyle(color: Colors.grey, fontSize: 10),
-                    ),
-                    onPressed: () {
-                      _launchURL(
-                          Uri(scheme: 'https', host: 'beian.miit.gov.cn'));
-                    },
-                  ),
-                )
-              ],
-            )
-          : AppBar(
-              leading: Builder(
-                builder: (BuildContext context) {
-                  return GestureDetector(
-                    child: Image.asset(
-                      'imgs/hy.gif',
-                    ),
-                    onTap: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                  );
-                },
-              ),
-              automaticallyImplyLeading: false,
-              // centerTitle: false,
-              title: getTabBar(_tabTitle, tabBoby).keys.first,
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    Routes.navigateTo(context, Routes.searchPage);
-                  },
-                )
-              ],
-            ),
+      appBar: _selected == 0 ? getAppbar1() : getAppbar2(),
       drawer: const DrawerPage(),
       body: getTabBar(_tabTitle, tabBoby).values.first,
       floatingActionButton: GestureDetector(
@@ -297,6 +228,95 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
 
       // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  PreferredSizeWidget getAppbar() {
+    if (_selected == 0) {
+      return getAppbar1();
+    } else {
+      return getAppbar2();
+    }
+  }
+
+  PreferredSizeWidget getAppbar2() {
+    return AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return GestureDetector(
+            child: Image.asset(
+              'imgs/hy.gif',
+            ),
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        },
+      ),
+      automaticallyImplyLeading: false,
+      // centerTitle: false,
+      title: getTabBar(_tabTitle, tabBoby).keys.first,
+      actions: [
+        IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {
+            Routes.navigateTo(context, Routes.searchPage);
+          },
+        )
+      ],
+    );
+  }
+
+  PreferredSizeWidget getAppbar1() {
+    return AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return GestureDetector(
+            child: Image.asset(
+              'imgs/hy.gif',
+            ),
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        },
+      ),
+      automaticallyImplyLeading: false,
+      // centerTitle: false,
+      title: InkWell(
+        onTap: () {
+          Routes.navigateTo(context, Routes.searchPage);
+        },
+        child: Container(
+            width: 0.8.sw,
+            height: 40,
+            margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.w),
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+            ),
+            child: TextButton.icon(
+                onPressed: null,
+                icon: const Icon(Icons.search),
+                label: Text("英雄联盟手游"))),
+      ),
+      bottom:
+          Constant.LOOK_MODE ? null : getTabBar(_tabTitle, tabBoby).keys.first,
+      actions: [
+        Container(
+          width: 100,
+          child: TextButton(
+            child: Text(
+              '京ICP备2022023998号',
+              style: TextStyle(color: Colors.grey, fontSize: 10),
+            ),
+            onPressed: () {
+              _launchURL(Uri(scheme: 'https', host: 'beian.miit.gov.cn'));
+            },
+          ),
+        )
+      ],
     );
   }
 
